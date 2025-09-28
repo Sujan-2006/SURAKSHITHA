@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Journey - Trikatu Churna</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="brand-icon">🌿</div>
+      <h1>SURAKSHITHA</h1>
+    </div>
+    <div class="back-nav">
+      <a href="index.html" class="back-btn">← Back to Dashboard</a>
+    </div>
+  </header>
+  
+  <!-- Product Header -->
+  <section class="product-header">
+    <div class="product-info-header">
+      <h2>Trikatu Churna</h2>
+      <div class="verification-badge">
+        <span class="verified-icon">✓</span>
+        <span>Verified on Blockchain</span>
+      </div>
+      <p class="batch-id">Batch ID: TRIK2505453</p>
+    </div>
+  </section>
+  
+  <!-- Product Journey Section -->
+  <section class="journey-section">
+    <h3 class="journey-title">Trikatu Churna Production Journey</h3>
+    
+    <div class="timeline">
+      
+      <!-- Step 7: Final Product Delivered to Store -->
+      <div class="timeline-item final-step">
+        <div class="step-number">7</div>
+        <div class="timeline-content">
+          <h4>🏪 Final Product Delivered to Store</h4>
+          <p class="company-name">Ayurvedic Retail Network</p>
+          <p class="date">2025-09-22</p>
+          <p class="description">
+            The complete Trikatu Churna product reaches trusted Ayurvedic stores, ready for consumer purchase with full traceability. Each product carries QR codes linking back to the complete journey of all three ingredients.
+          </p>
+        </div>
+        <div class="timeline-image single">
+          <img src="final-delivered.jpg" alt="Final product delivered to store" />
+        </div>
+      </div>
+      
+      <!-- Step 6: Final Packaging & Manufacturing -->
+      <div class="timeline-item packaging-step">
+        <div class="step-number">6</div>
+        <div class="timeline-content">
+          <h4>📦 Final Packaging & Manufacturing</h4>
+          <p class="company-name">Natural Remedies Ltd.</p>
+          <p class="date">2025-09-20</p>
+          <p class="description">
+            The final Trikatu Churna blend is packaged in sterile facilities with proper labeling, batch coding, and quality sealing. Each package includes detailed information about all three source ingredients and their individual journeys.
+          </p>
+        </div>
+        <div class="timeline-image single">
+          <img src="final-packaging.jpg" alt="Final packaging process" />
+        </div>
+      </div>
+      
+      <!-- Step 5: Final Blending & Quality Testing -->
+      <div class="timeline-item blending-step">
+        <div class="step-number">5</div>
+        <div class="timeline-content">
+          <h4>⚗️ Final Blending & Quality Testing</h4>
+          <p class="company-name">Ayurveda Processing Co.</p>
+          <p class="date">2025-09-18</p>
+          <p class="description">
+            All processed ingredients are blended together in precise traditional Ayurvedic proportions to create the final Trikatu Churna. Comprehensive quality testing ensures perfect blend consistency, potency, and adherence to ancient formulation standards.
+          </p>
+        </div>
+        <div class="timeline-image single">
+          <img src="final-blending.jpg" alt="Final blending process" />
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Individual Ingredients Summary -->
+    <div class="ingredients-summary">
+      <h3>🌿 Source Ingredients Summary</h3>
+      <p class="summary-description">The three ingredients that make up Trikatu Churna each underwent their own journey from cultivation to processing before being combined:</p>
+      
+      <div class="ingredients-cards">
+        <div class="summary-ingredient-card" onclick="showIngredientDetails('black-pepper')">
+          <div class="ingredient-icon">🌶️</div>
+          <h4>Black Pepper (Maricha)</h4>
+          <p class="source-location">Kerala, Western Ghats</p>
+          <p class="processing-steps">4 Individual Processing Steps</p>
+          <div class="view-details-btn">View Complete Journey →</div>
+        </div>
+        
+        <div class="summary-ingredient-card" onclick="showIngredientDetails('long-pepper')">
+          <div class="ingredient-icon">🌶️</div>
+          <h4>Long Pepper (Pippali)</h4>
+          <p class="source-location">Karnataka Hills</p>
+          <p class="processing-steps">4 Individual Processing Steps</p>
+          <div class="view-details-btn">View Complete Journey →</div>
+        </div>
+        
+        <div class="summary-ingredient-card" onclick="showIngredientDetails('dry-ginger')">
+          <div class="ingredient-icon">🫚</div>
+          <h4>Dry Ginger (Shunthi)</h4>
+          <p class="source-location">Maharashtra Valleys</p>
+          <p class="processing-steps">4 Individual Processing Steps</p>
+          <div class="view-details-btn">View Complete Journey →</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scan Another Product Button -->
+    <div class="scan-section">
+      <button class="btn btn-scan" onclick="openCamera()">📷 Scan Another Product</button>
+      <input type="file" id="qr-input" accept="image/*" capture="environment" style="display: none;" onchange="handleQRScan(event)">
+    </div>
+  </section>
+
+  <!-- Individual Ingredient Journey Modal -->
+  <div id="ingredientDetailsModal" class="modal">
+    <div class="modal-content ingredient-journey-content">
+      <div class="modal-header">
+        <h3 id="ingredientDetailsTitle">Ingredient Journey</h3>
+        <span class="close" onclick="closeIngredientDetails()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div id="ingredientDetailsContent">
+          <!-- Dynamic content will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 SURAKSHITHA | Complete Transparency from Three Seeds to Final Blend</p>
+  </footer>
+
+  <script>
+    function openCamera() {
+      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices.getUserMedia({ 
+            video: { 
+              facingMode: "environment"
+            } 
+          })
+          .then(function(stream) {
+            stream.getTracks().forEach(track => track.stop());
+            document.getElementById('qr-input').click();
+          })
+          .catch(function(err) {
+            console.log("Camera access denied: " + err);
+            document.getElementById('qr-input').click();
+          });
+        } else {
+          document.getElementById('qr-input').click();
+        }
+      } else {
+        document.getElementById('qr-input').click();
+      }
+    }
+
+    function handleQRScan(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const scanBtn = document.querySelector('.btn-scan');
+        const originalText = scanBtn.innerHTML;
+        scanBtn.innerHTML = '📷 Processing...';
+        scanBtn.disabled = true;
+
+        setTimeout(() => {
+          scanBtn.innerHTML = originalText;
+          scanBtn.disabled = false;
+          alert('QR Code scanned successfully! Redirecting to product details...');
+          event.target.value = '';
+        }, 2000);
+      }
+    }
+
+    function showIngredientInfo() {
+      // Function can be removed or used for other purposes
+    }
+
+    function showIngredientDetails(ingredient) {
+      const modal = document.getElementById('ingredientDetailsModal');
+      const title = document.getElementById('ingredientDetailsTitle');
+      const content = document.getElementById('ingredientDetailsContent');
+      
+      // Set content based on ingredient
+      const journeyData = getIngredientJourneyData(ingredient);
+      title.innerHTML = journeyData.title;
+      content.innerHTML = journeyData.content;
+      
+      modal.style.display = 'block';
+    }
+
+    function closeIngredientDetails() {
+      document.getElementById('ingredientDetailsModal').style.display = 'none';
+    }
+
+    function getIngredientJourneyData(ingredient) {
+      const journeys = {
+        'black-pepper': {
+          title: '🌶️ Black Pepper (Maricha) Journey',
+          content: `
+            <div class="ingredient-journey-header">
+              <div class="ingredient-journey-image">
+                <img src="black-pepper-harvest.jpg" alt="Black Pepper" />
+                <div class="ingredient-badge">
+                  <span class="verified-icon">✓</span>
+                  <span>Black Pepper - Verified</span>
+                </div>
+              </div>
+              <div class="ingredient-details">
+                <h4>Black Pepper (Piper nigrum)</h4>
+                <p class="origin-info">📍 Origin: Kerala, Western Ghats</p>
+                <p class="benefit-info">💪 Benefit: Enhances digestion & metabolism</p>
+              </div>
+            </div>
+
+            <div class="timeline ingredient-timeline">
+              <div class="timeline-item">
+                <div class="step-number">4</div>
+                <div class="timeline-content">
+                  <h4>Black Pepper Processing Complete</h4>
+                  <p class="company-name">Traditional Spice Mills</p>
+                  <p class="date">2025-09-16</p>
+                  <p class="description">
+                    Black Pepper berries are cleaned and ground to fine powder using traditional stone mills. The grinding process preserves the volatile oils and piperine content, maintaining maximum potency and flavor.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="black-pepper-processing.jpg" alt="Black pepper processing" />
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="step-number">3</div>
+                <div class="timeline-content">
+                  <h4>Black Pepper Cleaning & Preparation</h4>
+                  <p class="company-name">Kerala Processing Center</p>
+                  <p class="date">2025-09-12</p>
+                  <p class="description">
+                    Black Pepper berries undergo thorough cleaning to remove stems, stones, and damaged berries. They are then dried under controlled conditions to achieve optimal moisture content for grinding.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="black-pepper-cleaning.jpg" alt="Black pepper cleaning" />
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="step-number">2</div>
+                <div class="timeline-content">
+                  <h4>Black Pepper Harvesting</h4>
+                  <p class="company-name">Western Ghats Pepper Farms</p>
+                  <p class="date">2025-09-08</p>
+                  <p class="description">
+                    Black Pepper berries are hand-picked when they reach perfect ripeness - still green but fully developed. Expert farmers ensure only the best quality berries are selected for processing.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="black-pepper-harvest.jpg" alt="Black pepper harvesting" />
+                </div>
+              </div>
+
+              <div class="timeline-item foundation">
+                <div class="step-number">1</div>
+                <div class="timeline-content">
+                  <h4>🌱 Black Pepper Vine Cultivation</h4>
+                  <p class="company-name">Kerala Organic Spice Cooperative</p>
+                  <p class="date">2025-03-01 to 2025-09-05</p>
+                  <p class="description">
+                    <strong>THE FOUNDATION:</strong> Black Pepper vines are cultivated using traditional methods in the rich, humid climate of Kerala's Western Ghats. The vines are grown on living support trees following sustainable farming practices without chemical fertilizers or pesticides.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="bcul.jpg" alt="Black pepper cultivation" />
+                </div>
+              </div>
+            </div>
+          `
+        },
+        'long-pepper': {
+          title: '🌶️ Long Pepper (Pippali) Journey',
+          content: `
+            <div class="ingredient-journey-header">
+              <div class="ingredient-journey-image">
+                <img src="long-pepper-harvest.jpg" alt="Long Pepper" />
+                <div class="ingredient-badge">
+                  <span class="verified-icon">✓</span>
+                  <span>Long Pepper - Verified</span>
+                </div>
+              </div>
+              <div class="ingredient-details">
+                <h4>Long Pepper (Piper longum)</h4>
+                <p class="origin-info">📍 Origin: Karnataka Hills</p>
+                <p class="benefit-info">💪 Benefit: Boosts immunity & respiratory strength</p>
+              </div>
+            </div>
+
+            <div class="timeline ingredient-timeline">
+              <div class="timeline-item">
+                <div class="step-number">4</div>
+                <div class="timeline-content">
+                  <h4>Long Pepper Processing Complete</h4>
+                  <p class="company-name">Traditional Spice Mills</p>
+                  <p class="date">2025-09-16</p>
+                  <p class="description">
+                    Long Pepper spikes are carefully dried and powdered to preserve their alkaloid content. Special care is taken to maintain the structural integrity of the spikes during grinding to preserve maximum therapeutic value.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="long-pepper-processing.jpg" alt="Long pepper processing" />
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="step-number">3</div>
+                <div class="timeline-content">
+                  <h4>Long Pepper Cleaning & Preparation</h4>
+                  <p class="company-name">Karnataka Processing Center</p>
+                  <p class="date">2025-09-12</p>
+                  <p class="description">
+                    Long Pepper spikes are carefully cleaned and sorted. Each spike is inspected for quality and only the best specimens are selected. They undergo natural drying to remove excess moisture while preserving active compounds.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="long-pepper-cleaning.jpg" alt="Long pepper cleaning" />
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="step-number">2</div>
+                <div class="timeline-content">
+                  <h4>Long Pepper Harvesting</h4>
+                  <p class="company-name">Karnataka Hills Pepper Collective</p>
+                  <p class="date">2025-09-08</p>
+                  <p class="description">
+                    Long Pepper spikes are harvested during peak potency period when the catkins are fully mature but still tender. Experienced harvesters ensure optimal timing for maximum alkaloid content.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="long-pepper-harvest.jpg" alt="Long pepper harvesting" />
+                </div>
+              </div>
+
+              <div class="timeline-item foundation">
+                <div class="step-number">1</div>
+                <div class="timeline-content">
+                  <h4>🌱 Long Pepper Plant Cultivation</h4>
+                  <p class="company-name">Karnataka Organic Hills Collective</p>
+                  <p class="date">2025-03-01 to 2025-09-05</p>
+                  <p class="description">
+                    <strong>THE FOUNDATION:</strong> Long Pepper plants are cultivated in the cooler hill stations of Karnataka using natural farming techniques. These climbing shrubs are grown in well-drained soil with organic compost, maintaining traditional cultivation methods.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="lpcul.jpg" alt="Long pepper cultivation" />
+                </div>
+              </div>
+            </div>
+          `
+        },
+        'dry-ginger': {
+          title: '🫚 Dry Ginger (Shunthi) Journey',
+          content: `
+            <div class="ingredient-journey-header">
+              <div class="ingredient-journey-image">
+                <img src="ginger-harvest.jpg" alt="Dry Ginger" />
+                <div class="ingredient-badge">
+                  <span class="verified-icon">✓</span>
+                  <span>Dry Ginger - Verified</span>
+                </div>
+              </div>
+              <div class="ingredient-details">
+                <h4>Dry Ginger (Zingiber officinale)</h4>
+                <p class="origin-info">📍 Origin: Maharashtra Valleys</p>
+                <p class="benefit-info">💪 Benefit: Improves digestion & relieves bloating</p>
+              </div>
+            </div>
+
+            <div class="timeline ingredient-timeline">
+              <div class="timeline-item">
+                <div class="step-number">4</div>
+                <div class="timeline-content">
+                  <h4>Dry Ginger Processing Complete</h4>
+                  <p class="company-name">Traditional Spice Mills</p>
+                  <p class="date">2025-09-16</p>
+                  <p class="description">
+                    Dried ginger rhizomes are ground into fine powder using traditional methods. The grinding process is carefully controlled to preserve gingerol compounds and maintain the characteristic warm, pungent flavor profile.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="ginger-processing.jpg" alt="Dry ginger processing" />
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="step-number">3</div>
+                <div class="timeline-content">
+                  <h4>Ginger Drying Process</h4>
+                  <p class="company-name">Maharashtra Processing Center</p>
+                  <p class="date">2025-09-12</p>
+                  <p class="description">
+                    Fresh Ginger rhizomes undergo traditional sun-drying process. They are cleaned, sliced, and dried under controlled conditions to remove moisture while concentrating the active compounds and developing the characteristic dry ginger properties.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="ginger-drying.jpg" alt="Ginger drying process" />
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="step-number">2</div>
+                <div class="timeline-content">
+                  <h4>Fresh Ginger Harvesting</h4>
+                  <p class="company-name">Maharashtra Valley Farms</p>
+                  <p class="date">2025-09-08</p>
+                  <p class="description">
+                    Fresh Ginger rhizomes are carefully harvested when they reach full maturity. The rhizomes are hand-dug to prevent damage and ensure maximum quality. Only the finest, disease-free rhizomes are selected for drying.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="ginger-harvest.jpg" alt="Ginger harvesting" />
+                </div>
+              </div>
+
+              <div class="timeline-item foundation">
+                <div class="step-number">1</div>
+                <div class="timeline-content">
+                  <h4>🌱 Ginger Field Cultivation</h4>
+                  <p class="company-name">Maharashtra Organic Valley Cooperative</p>
+                  <p class="date">2025-03-01 to 2025-09-05</p>
+                  <p class="description">
+                    <strong>THE FOUNDATION:</strong> Ginger is cultivated in the fertile valleys of Maharashtra using organic farming practices. The rhizomes are grown in well-drained, nutrient-rich soil with regular organic manure application, following traditional sustainable methods.
+                  </p>
+                </div>
+                <div class="timeline-image single">
+                  <img src="gcul.jpg" alt="Ginger cultivation" />
+                </div>
+              </div>
+            </div>
+          `
+        }
+      };
+      
+      return journeys[ingredient];
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('ingredientDetailsModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    if (window.history && window.history.pushState) {
+      window.addEventListener('popstate', function() {});
+    }
+  </script>
+</body>
+</html>
