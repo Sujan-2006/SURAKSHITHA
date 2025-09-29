@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Analysis - SURAKSHITHA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="brand-icon">🌿</div>
+      <h1>SURAKSHITHA</h1>
+    </div>
+    <div class="user-info">
+      <div class="language-switcher">
+        <select class="language-dropdown">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="ta">தமிழ்</option>
+          <option value="kn">ಕನ್ನಡ</option>
+        </select>
+      </div>
+      <span>Market Analysis Portal</span>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-item">🏠 Home</a>
+    <a href="#" class="nav-item active">📊 Market Analysis</a>
+    <a href="communication-hub.html" class="nav-item">💬 Communications</a>
+    <a href="reviews-ratings.html" class="nav-item">⭐ Reviews & Ratings</a>
+    <a href="grievance-system.html" class="nav-item">🎯 Grievances</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="home-content">
+    <div class="dashboard-header">
+      <h2>MARKET ANALYSIS</h2>
+      <p class="subtitle">Real-time market data and insights for informed decision making</p>
+    </div>
+
+    <!-- Live Market Overview -->
+    <div class="market-analysis">
+      <h3>🔴 Live Market Dashboard</h3>
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <div class="stat-number price-up">₹850/kg</div>
+          <div class="stat-label">Black Pepper ↗️ +2.1%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number price-stable">₹1,200/kg</div>
+          <div class="stat-label">Long Pepper ➡️ 0.0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number price-up">₹45/kg</div>
+          <div class="stat-label">Ginger ↗️ +4.7%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number price-stable">₹85/kg</div>
+          <div class="stat-label">Turmeric ➡️ +0.2%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number price-up">₹120/kg</div>
+          <div class="stat-label">Ashwagandha ↗️ +8.3%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number price-down">₹95/kg</div>
+          <div class="stat-label">Brahmi ↘️ -1.2%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Price Charts Section -->
+    <div class="market-analysis">
+      <h3>📈 Market Price Trends Analysis (Last 12 Months)</h3>
+
+      <!-- Chart Container -->
+      <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 1.5rem 0;">
+        <!-- This is where you would place the actual chart image -->
+        <!-- Replace 'chart-placeholder.png' with your actual chart image file -->
+        <img src="market-price-chart.png" alt="Market Price Trends for Ayurvedic Crops" 
+             style="width: 100%; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"
+             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk1hcmtldCBQcmljZSBUcmVuZHMgQ2hhcnQ8L3RleHQ+PC9zdmc+';" />
+
+        <!-- Chart Controls -->
+        <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <button class="btn btn-secondary" onclick="toggleChart('price-trends')">📈 Price Trends</button>
+          <button class="btn btn-ingredients" onclick="toggleChart('yield-data')">🌱 Yield Analysis</button>
+          <button class="btn btn-certifications" onclick="toggleChart('revenue-profit')">💰 Revenue Analysis</button>
+          <button class="btn btn-primary" onclick="exportChart()">📊 Export Chart</button>
+        </div>
+      </div>
+
+      <div style="margin: 2rem 0;">
+        <h4>Key Market Insights:</h4>
+        <ul style="color: #666; line-height: 1.8;">
+          <li><strong>Black Pepper:</strong> Prices have shown consistent upward trend (+18% in 12 months) due to reduced global production and increased demand from pharmaceutical sector.</li>
+          <li><strong>Long Pepper:</strong> Stable pricing with slight growth, supported by steady demand from traditional medicine manufacturers.</li>
+          <li><strong>Ginger:</strong> Seasonal fluctuations with current uptick driven by upcoming festival season and export demand.</li>
+          <li><strong>Turmeric:</strong> Moderate growth pattern with stable demand from both domestic and international markets.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Interactive Chart Viewer -->
+    <div class="market-analysis">
+      <h3>🎯 Interactive Chart Viewer</h3>
+
+      <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border: 2px dashed #dee2e6; text-align: center;">
+        <h4 style="color: #495057; margin-bottom: 1rem;">📊 Chart Integration Instructions</h4>
+        <p style="color: #6c757d; line-height: 1.6;">
+          To display the generated charts in this page, follow these steps:
+        </p>
+
+        <div style="text-align: left; max-width: 600px; margin: 1rem auto;">
+          <div style="background: white; padding: 1rem; margin: 0.5rem 0; border-radius: 8px; border-left: 4px solid #28a745;">
+            <strong>Step 1:</strong> Download the chart images from the chart generator
+          </div>
+          <div style="background: white; padding: 1rem; margin: 0.5rem 0; border-radius: 8px; border-left: 4px solid #007bff;">
+            <strong>Step 2:</strong> Save them in the same folder as your HTML files with names like:
+            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+              <li><code>market-price-chart.png</code></li>
+              <li><code>crop-yield-chart.png</code></li>
+              <li><code>revenue-profit-chart.png</code></li>
+            </ul>
+          </div>
+          <div style="background: white; padding: 1rem; margin: 0.5rem 0; border-radius: 8px; border-left: 4px solid #ffc107;">
+            <strong>Step 3:</strong> The HTML img tags will automatically display them
+          </div>
+          <div style="background: white; padding: 1rem; margin: 0.5rem 0; border-radius: 8px; border-left: 4px solid #17a2b8;">
+            <strong>Step 4:</strong> Charts will be responsive and fit any screen size
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alternative Chart Display Options -->
+    <div class="market-analysis">
+      <h3>📈 Alternative Chart Display Methods</h3>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+
+        <div style="background: #e8f5e8; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #28a745;">
+          <h4 style="color: #2d5016;">💻 Direct Image Embedding</h4>
+          <p style="color: #666; font-size: 0.9rem; margin: 0.5rem 0;">Save chart images in your project folder and reference them directly in HTML</p>
+          <code style="background: #f8f9fa; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+            &lt;img src="chart.png" alt="Chart"&gt;
+          </code>
+        </div>
+
+        <div style="background: #fff3cd; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #ffc107;">
+          <h4 style="color: #856404;">🔗 URL Integration</h4>
+          <p style="color: #666; font-size: 0.9rem; margin: 0.5rem 0;">Use the chart URLs directly from the cloud storage</p>
+          <code style="background: #f8f9fa; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+            &lt;img src="https://chart-url.com/image.png"&gt;
+          </code>
+        </div>
+
+        <div style="background: #cce5ff; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #007bff;">
+          <h4 style="color: #004085;">📊 Interactive Charts</h4>
+          <p style="color: #666; font-size: 0.9rem; margin: 0.5rem 0;">Embed interactive charts using Chart.js or similar libraries</p>
+          <code style="background: #f8f9fa; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+            &lt;canvas id="myChart"&gt;&lt;/canvas&gt;
+          </code>
+        </div>
+
+        <div style="background: #f8d7da; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #dc3545;">
+          <h4 style="color: #721c24;">📱 Responsive Design</h4>
+          <p style="color: #666; font-size: 0.9rem; margin: 0.5rem 0;">Charts automatically adapt to different screen sizes</p>
+          <code style="background: #f8f9fa; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+            style="width: 100%; height: auto;"
+          </code>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Supply and Demand Analysis -->
+    <div class="market-analysis">
+      <h3>⚖️ Supply & Demand Analysis</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Crop</th>
+            <th>Regional Supply</th>
+            <th>Market Demand</th>
+            <th>Supply-Demand Ratio</th>
+            <th>Price Forecast</th>
+            <th>Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Black Pepper</strong></td>
+            <td><span class="price-down">Low (2,450 tons)</span></td>
+            <td><span class="price-up">High (3,200 tons)</span></td>
+            <td><span class="price-down">0.76 (Supply deficit)</span></td>
+            <td class="price-up">↗️ Increasing</td>
+            <td><strong>Sell immediately</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Long Pepper</strong></td>
+            <td><span class="price-stable">Medium (1,800 tons)</span></td>
+            <td><span class="price-stable">Medium (1,750 tons)</span></td>
+            <td><span class="price-stable">1.03 (Balanced)</span></td>
+            <td class="price-stable">➡️ Stable</td>
+            <td>Maintain production</td>
+          </tr>
+          <tr>
+            <td><strong>Ginger</strong></td>
+            <td><span class="price-up">High (15,200 tons)</span></td>
+            <td><span class="price-up">High (14,800 tons)</span></td>
+            <td><span class="price-stable">1.03 (Balanced)</span></td>
+            <td class="price-up">↗️ Seasonal increase</td>
+            <td>Optimal selling time</td>
+          </tr>
+          <tr>
+            <td><strong>Turmeric</strong></td>
+            <td><span class="price-stable">High (8,900 tons)</span></td>
+            <td><span class="price-stable">High (8,600 tons)</span></td>
+            <td><span class="price-stable">1.04 (Balanced)</span></td>
+            <td class="price-stable">➡️ Stable with slight growth</td>
+            <td>Continue cultivation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Market Predictions -->
+    <div class="market-analysis">
+      <h3>🔮 AI-Powered Market Predictions</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        <div style="background: #e8f5e8; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #28a745;">
+          <h4 style="color: #2d5016;">Next 30 Days Forecast</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li>🌶️ Black Pepper: ₹880-920/kg (↗️ +6-8%)</li>
+            <li>🌶️ Long Pepper: ₹1,180-1,230/kg (→ Stable)</li>
+            <li>🫚 Ginger: ₹48-52/kg (↗️ +7-15%)</li>
+            <li>🟨 Turmeric: ₹85-88/kg (→ +2-4%)</li>
+          </ul>
+        </div>
+        <div style="background: #fff3cd; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #ffc107;">
+          <h4 style="color: #856404;">Seasonal Trends</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li>🎄 Festival Season: 15-20% price increase expected</li>
+            <li>❄️ Winter Harvest: Optimal selling period begins</li>
+            <li>🌱 Planting Season: New crop planning needed</li>
+            <li>📦 Export Peak: International demand rising</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="btn btn-primary" onclick="setMarketAlerts()">🔔 Set Price Alerts</button>
+      <button class="btn btn-secondary" onclick="exportMarketData()">📊 Export Market Data</button>
+      <button class="btn btn-ingredients" onclick="downloadCharts()">🖼️ Download Charts</button>
+      <button class="btn btn-certifications" onclick="shareAnalysis()">📤 Share Analysis</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 SURAKSHITHA | Real-time Market Intelligence for Ayurvedic Supply Chain</p>
+  </footer>
+
+  <script>
+    function toggleChart(chartType) {
+      alert(`Switching to ${chartType} view.\n\nThis would dynamically change the displayed chart based on user selection.`);
+    }
+
+    function exportChart() {
+      alert('Chart Export Options:\n\n• Download as PNG (High Resolution)\n• Export as PDF\n• Get SVG format\n• Copy chart URL\n• Generate shareable link');
+    }
+
+    function downloadCharts() {
+      alert('Chart Download Options:\n\n• All charts as ZIP file\n• Individual chart selection\n• Multiple format options\n• High-resolution versions\n• Print-ready formats');
+    }
+
+    function shareAnalysis() {
+      alert('Share Analysis:\n\n• Generate shareable URL\n• Email analysis report\n• Export presentation\n• Social media sharing\n• Team collaboration link');
+    }
+
+    function setMarketAlerts() {
+      alert('Price Alert System:\n\n• Set custom price thresholds\n• Get SMS/Email notifications\n• Track multiple crops simultaneously\n• Historical price breach analysis\n• Smart recommendation engine');
+    }
+
+    function exportMarketData() {
+      alert('Market Data Export Options:\n\n• Current prices (CSV/Excel)\n• Historical trends (PDF reports)\n• Demand-supply analysis\n• Regional comparison charts\n• Forecast data for planning');
+    }
+  </script>
+</body>
+</html>

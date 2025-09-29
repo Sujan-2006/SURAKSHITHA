@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SURAKSHITHA - Ayurvedic Product Traceability</title>
+  <title>SURAKSHITHA - Multi-Stakeholder Ayurvedic Platform</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,593 +14,186 @@
       <h1>SURAKSHITHA</h1>
     </div>
     <div class="user-info">
-      <span>Welcome, Consumer</span>
+      <div class="language-switcher">
+        <select class="language-dropdown" onchange="changeLanguage(this.value)">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="ta">தமிழ்</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="ml">മലയാളം</option>
+          <option value="te">తెలుగు</option>
+        </select>
+      </div>
+      <span id="welcome-text">Welcome to SURAKSHITHA</span>
     </div>
   </header>
-  
+
   <!-- Main Content -->
   <main class="home-content">
     <div class="dashboard-header">
-      <h2>WELCOME Consumer!!</h2>
-      <p class="subtitle">Verify the authenticity of your Ayurvedic products</p>
+      <h2 id="main-title">SURAKSHITHA Platform</h2>
+      <p class="subtitle" id="main-subtitle">Building Trust through Transparency in Ayurvedic Supply Chain</p>
     </div>
-    
-    <div class="product-card">
-      <div class="product-image">
-        <img src="trikatu-churna.jpg" alt="Trikatu Churna" />
+
+    <!-- Role Selection -->
+    <div class="role-selection">
+      <div class="role-card" onclick="selectRole('consumer')">
+        <span class="role-icon">🛒</span>
+        <h3 id="consumer-title">Consumer</h3>
+        <p class="role-description" id="consumer-desc">
+          Verify product authenticity, track ingredients, view certifications, and provide feedback on Ayurvedic products.
+        </p>
+        <div class="btn btn-primary">Enter Consumer Portal</div>
       </div>
-      <div class="product-info">
-        <h3>Trikatu Churna</h3>
-        <div class="verification-badge">
-          <span class="verified-icon">✓</span>
-          <span>Verified on Blockchain</span>
-        </div>
-        <p class="batch-id">Batch ID: TRIK2505453</p>
-        <div class="action-buttons">
-          <button class="btn btn-secondary" onclick="showAbout()">🌿 About Product</button>
-          <button class="btn btn-ingredients" onclick="showIngredients()">📋 View Ingredients</button>
-          <button class="btn btn-certifications" onclick="showCertifications()">🏆 Certifications</button>
-          <a href="full-history.html" class="btn btn-primary">📋 View Full History</a>
-        </div>
-        <div class="status-message">
-          This product has been verified as authentic and meets all quality standards.
-        </div>
+
+      <div class="role-card" onclick="selectRole('cultivator')">
+        <span class="role-icon">🌱</span>
+        <h3 id="cultivator-title">Cultivator/Farmer</h3>
+        <p class="role-description" id="cultivator-desc">
+          Manage crop data, track market prices, communicate with processors, and monitor supply chain progress.
+        </p>
+        <div class="btn btn-secondary">Enter Cultivator Portal</div>
+      </div>
+
+      <div class="role-card" onclick="selectRole('manufacturer')">
+        <span class="role-icon">🏭</span>
+        <h3 id="manufacturer-title">Manufacturer</h3>
+        <p class="role-description" id="manufacturer-desc">
+          Source ingredients, manage production processes, handle quality control, and coordinate with suppliers.
+        </p>
+        <div class="btn btn-ingredients">Enter Manufacturer Portal</div>
+      </div>
+
+      <div class="role-card" onclick="selectRole('processor')">
+        <span class="role-icon">⚙️</span>
+        <h3 id="processor-title">Processor</h3>
+        <p class="role-description" id="processor-desc">
+          Process raw materials, maintain quality standards, track batch information, and coordinate logistics.
+        </p>
+        <div class="btn btn-certifications">Enter Processor Portal</div>
+      </div>
+    </div>
+
+    <!-- Platform Features -->
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <div class="stat-number">📊</div>
+        <div class="stat-label" id="feature1">Real-Time Market Analysis</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">💬</div>
+        <div class="stat-label" id="feature2">Multi-Stakeholder Communication</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">⭐</div>
+        <div class="stat-label" id="feature3">Reviews & Ratings System</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">🎯</div>
+        <div class="stat-label" id="feature4">Grievance Management</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">🌐</div>
+        <div class="stat-label" id="feature5">Multilingual Support</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">🔗</div>
+        <div class="stat-label" id="feature6">Blockchain Traceability</div>
+      </div>
+    </div>
+
+    <!-- Quick Access Links -->
+    <div class="market-analysis">
+      <h3 id="quick-access">Quick Access</h3>
+      <div class="action-buttons">
+        <a href="market-analysis.html" class="btn btn-primary">📈 Market Analysis</a>
+        <a href="communication-hub.html" class="btn btn-secondary">💬 Communication Hub</a>
+        <a href="reviews-ratings.html" class="btn btn-ingredients">⭐ Reviews & Ratings</a>
+        <a href="grievance-system.html" class="btn btn-certifications">🎯 Grievance System</a>
       </div>
     </div>
   </main>
 
-  <!-- About Product Modal -->
-  <div id="aboutModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>🌿 Trikatu Churna</h3>
-        <span class="close" onclick="closeAbout()">&times;</span>
-      </div>
-      <div class="modal-body">
-        <!-- Product Image Section -->
-        <div class="modal-product-image">
-          <img src="trikatu-churna.jpg" alt="Trikatu Churna" />
-          <div class="image-caption">
-            <span class="verified-badge-modal">✓ Verified</span>
-            <span class="batch-info">Batch: TRIK-2023-06-15-001</span>
-          </div>
-        </div>
-
-        <div class="ingredients-section">
-          <h4>✨ Main Ingredients (The Power Trio):</h4>
-          <ul>
-            <li><strong>Black Pepper (Maricha)</strong> – Enhances digestion & metabolism</li>
-            <li><strong>Long Pepper (Pippali)</strong> – Boosts immunity & respiratory strength</li>
-            <li><strong>Dry Ginger (Shunthi)</strong> – Improves digestion & relieves bloating</li>
-          </ul>
-        </div>
-
-        <div class="about-section">
-          <h4>📖 About:</h4>
-          <p>Trikatu, literally meaning <em>"three pungents"</em>, is a traditional Ayurvedic blend used for centuries to kindle <em>Agni</em> (digestive fire). It supports metabolism, clears toxins, and promotes overall vitality.</p>
-        </div>
-
-        <div class="caution-section">
-          <h4>⚠️ Caution:</h4>
-          <ul>
-            <li>Not recommended for people with ulcers, acidity, or sensitive stomach.</li>
-            <li>Pregnant or lactating women should consult a physician.</li>
-            <li>Always use in moderation.</li>
-          </ul>
-        </div>
-
-        <div class="usage-section">
-          <h4>🍵 How to Use:</h4>
-          <ul>
-            <li>Mix <strong>½ – 1 teaspoon</strong> with warm water or honey.</li>
-            <li>Take before meals for best results.</li>
-            <li>Or as advised by your Ayurvedic practitioner.</li>
-          </ul>
-        </div>
-
-        <div class="benefits-section">
-          <h4>💪 Benefits / Uses:</h4>
-          <ul>
-            <li>Boosts digestion & metabolism 🔥</li>
-            <li>Helps in weight management ⚖️</li>
-            <li>Clears respiratory congestion 🌬️</li>
-            <li>Enhances nutrient absorption 🌱</li>
-            <li>Improves immunity & vitality 🛡️</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Ingredients Modal -->
-  <div id="ingredientsModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>📋 Trikatu Churna Ingredients</h3>
-        <span class="close" onclick="closeIngredients()">&times;</span>
-      </div>
-      <div class="modal-body">
-        <p class="ingredients-intro">Click on any ingredient below to view its complete journey from cultivation to processing:</p>
-        
-        <div class="ingredients-grid">
-          <div class="ingredient-card" onclick="viewIngredientJourney('black-pepper')">
-            <div class="ingredient-image">
-              <img src="black-pepper-harvest.jpg" alt="Black Pepper" />
-            </div>
-            <div class="ingredient-info">
-              <h4>Black Pepper (Maricha)</h4>
-              <p class="ingredient-origin">Origin: Kerala, Western Ghats</p>
-              <p class="ingredient-benefit">Enhances digestion & metabolism</p>
-              <div class="view-journey-btn">
-                <span>👁️ View Journey</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ingredient-card" onclick="viewIngredientJourney('long-pepper')">
-            <div class="ingredient-image">
-              <img src="long-pepper-harvest.jpg" alt="Long Pepper" />
-            </div>
-            <div class="ingredient-info">
-              <h4>Long Pepper (Pippali)</h4>
-              <p class="ingredient-origin">Origin: Karnataka Hills</p>
-              <p class="ingredient-benefit">Boosts immunity & respiratory strength</p>
-              <div class="view-journey-btn">
-                <span>👁️ View Journey</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="ingredient-card" onclick="viewIngredientJourney('dry-ginger')">
-            <div class="ingredient-image">
-              <img src="ginger-harvest.jpg" alt="Dry Ginger" />
-            </div>
-            <div class="ingredient-info">
-              <h4>Dry Ginger (Shunthi)</h4>
-              <p class="ingredient-origin">Origin: Maharashtra Valleys</p>
-              <p class="ingredient-benefit">Improves digestion & relieves bloating</p>
-              <div class="view-journey-btn">
-                <span>👁️ View Journey</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Certifications Modal -->
-  <div id="certificationsModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>🏆 Product Certifications</h3>
-        <span class="close" onclick="closeCertifications()">&times;</span>
-      </div>
-      <div class="modal-body">
-        <div class="certifications-header">
-          <div class="certification-product-info">
-            <img src="trikatu-churna.jpg" alt="Trikatu Churna" class="cert-product-image" />
-            <div class="cert-product-details">
-              <h4>Trikatu Churna</h4>
-              <p class="cert-batch-id">Batch ID: TRIK2505453</p>
-              <div class="cert-verification-badge">
-                <span class="verified-icon">✓</span>
-                <span>All Certifications Verified</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="certifications-grid">
-          <div class="certification-card">
-            <div class="cert-icon">🌿</div>
-            <div class="cert-content">
-              <h5>Organic Certification</h5>
-              <p class="cert-authority">Certified by: NPOP (National Programme for Organic Production)</p>
-              <p class="cert-number">Certificate No: NPOP/OC/2024/TRK001</p>
-              <p class="cert-validity">Valid Until: December 2025</p>
-              <div class="cert-status verified">✓ Verified</div>
-            </div>
-          </div>
-
-          <div class="certification-card">
-            <div class="cert-icon">🏥</div>
-            <div class="cert-content">
-              <h5>AYUSH Ministry Approval</h5>
-              <p class="cert-authority">Certified by: Ministry of AYUSH, Government of India</p>
-              <p class="cert-number">License No: AYU/LIC/2024/003892</p>
-              <p class="cert-validity">Valid Until: March 2026</p>
-              <div class="cert-status verified">✓ Verified</div>
-            </div>
-          </div>
-
-          <div class="certification-card">
-            <div class="cert-icon">🧪</div>
-            <div class="cert-content">
-              <h5>Laboratory Tested</h5>
-              <p class="cert-authority">Tested by: National Testing Laboratory (NABL Accredited)</p>
-              <p class="cert-number">Report No: NTL/2024/TRK/567</p>
-              <p class="cert-validity">Test Date: September 2024</p>
-              <div class="cert-status verified">✓ Verified</div>
-            </div>
-          </div>
-
-          <div class="certification-card">
-            <div class="cert-icon">⭐</div>
-            <div class="cert-content">
-              <h5>ISO 9001:2015 Quality</h5>
-              <p class="cert-authority">Certified by: Bureau of Indian Standards (BIS)</p>
-              <p class="cert-number">Certificate No: ISO/QM/2024/TR891</p>
-              <p class="cert-validity">Valid Until: August 2025</p>
-              <div class="cert-status verified">✓ Verified</div>
-            </div>
-          </div>
-
-          <div class="certification-card">
-            <div class="cert-icon">🌍</div>
-            <div class="cert-content">
-              <h5>GMP Certified</h5>
-              <p class="cert-authority">Good Manufacturing Practices - WHO Standards</p>
-              <p class="cert-number">Certificate No: GMP/WHO/2024/456</p>
-              <p class="cert-validity">Valid Until: November 2025</p>
-              <div class="cert-status verified">✓ Verified</div>
-            </div>
-          </div>
-
-          <div class="certification-card">
-            <div class="cert-icon">🔬</div>
-            <div class="cert-content">
-              <h5>Heavy Metals Free</h5>
-              <p class="cert-authority">Tested by: Central Drug Research Institute</p>
-              <p class="cert-number">Report No: CDRI/HM/2024/TR334</p>
-              <p class="cert-validity">Test Date: September 2024</p>
-              <div class="cert-status verified">✓ Verified</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="certification-footer">
-          <div class="blockchain-verification">
-            <h5>🔗 Blockchain Verification</h5>
-            <p>All certifications are recorded on blockchain for immutable verification. 
-            Hash: <span class="hash-code">0x7f9a2b8c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="ingredientJourneyModal" class="modal">
-    <div class="modal-content ingredient-journey-content">
-      <div class="modal-header">
-        <h3 id="ingredientJourneyTitle">Ingredient Journey</h3>
-        <span class="close" onclick="closeIngredientJourney()">&times;</span>
-      </div>
-      <div class="modal-body">
-        <div id="ingredientJourneyContent">
-          <!-- Dynamic content will be loaded here -->
-        </div>
-      </div>
-    </div>
-  </div>
-  
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 SURAKSHITHA | Building Trust through Transparency</p>
+    <p id="footer-text">&copy; 2025 SURAKSHITHA | Building Trust through Transparency</p>
   </footer>
 
   <script>
-    function showAbout() {
-      document.getElementById('aboutModal').style.display = 'block';
-    }
-
-    function closeAbout() {
-      document.getElementById('aboutModal').style.display = 'none';
-    }
-
-    function showIngredients() {
-      document.getElementById('ingredientsModal').style.display = 'block';
-    }
-
-    function closeIngredients() {
-      document.getElementById('ingredientsModal').style.display = 'none';
-    }
-
-    function viewIngredientJourney(ingredient) {
-      const modal = document.getElementById('ingredientJourneyModal');
-      const title = document.getElementById('ingredientJourneyTitle');
-      const content = document.getElementById('ingredientJourneyContent');
-      
-      // Close ingredients modal
-      closeIngredients();
-      
-      // Set content based on ingredient
-      const journeyData = getIngredientJourneyData(ingredient);
-      title.innerHTML = journeyData.title;
-      content.innerHTML = journeyData.content;
-      
-      modal.style.display = 'block';
-    }
-
-    function closeIngredientJourney() {
-      document.getElementById('ingredientJourneyModal').style.display = 'none';
-    }
-
-    function showCertifications() {
-      document.getElementById('certificationsModal').style.display = 'block';
-    }
-
-    function closeCertifications() {
-      document.getElementById('certificationsModal').style.display = 'none';
-    }
-
-    function getIngredientJourneyData(ingredient) {
-      const journeys = {
-        'black-pepper': {
-          title: '🌶️ Black Pepper (Maricha) Journey',
-          content: `
-            <div class="ingredient-journey-header">
-              <div class="ingredient-journey-image">
-                <img src="black-pepper-harvest.jpg" alt="Black Pepper" />
-                <div class="ingredient-badge">
-                  <span class="verified-icon">✓</span>
-                  <span>Black Pepper - Verified</span>
-                </div>
-              </div>
-              <div class="ingredient-details">
-                <h4>Black Pepper (Piper nigrum)</h4>
-                <p class="origin-info">📍 Origin: Kerala, Western Ghats</p>
-                <p class="benefit-info">💪 Benefit: Enhances digestion & metabolism</p>
-              </div>
-            </div>
-
-            <div class="timeline ingredient-timeline">
-              <div class="timeline-item">
-                <div class="step-number">4</div>
-                <div class="timeline-content">
-                  <h4>Black Pepper Processing Complete</h4>
-                  <p class="company-name">Traditional Spice Mills</p>
-                  <p class="date">2025-09-16</p>
-                  <p class="description">
-                    Black Pepper berries are cleaned and ground to fine powder using traditional stone mills. The grinding process preserves the volatile oils and piperine content, maintaining maximum potency and flavor.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="black-pepper-processing.jpg" alt="Black pepper processing" />
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="step-number">3</div>
-                <div class="timeline-content">
-                  <h4>Black Pepper Cleaning & Preparation</h4>
-                  <p class="company-name">Kerala Processing Center</p>
-                  <p class="date">2025-09-12</p>
-                  <p class="description">
-                    Black Pepper berries undergo thorough cleaning to remove stems, stones, and damaged berries. They are then dried under controlled conditions to achieve optimal moisture content for grinding.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="black-pepper-cleaning.jpg" alt="Black pepper cleaning" />
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="step-number">2</div>
-                <div class="timeline-content">
-                  <h4>Black Pepper Harvesting</h4>
-                  <p class="company-name">Western Ghats Pepper Farms</p>
-                  <p class="date">2025-09-08</p>
-                  <p class="description">
-                    Black Pepper berries are hand-picked when they reach perfect ripeness - still green but fully developed. Expert farmers ensure only the best quality berries are selected for processing.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="black-pepper-harvest.jpg" alt="Black pepper harvesting" />
-                </div>
-              </div>
-
-              <div class="timeline-item foundation">
-                <div class="step-number">1</div>
-                <div class="timeline-content">
-                  <h4>🌱 Black Pepper Vine Cultivation</h4>
-                  <p class="company-name">Kerala Organic Spice Cooperative</p>
-                  <p class="date">2025-03-01 to 2025-09-05</p>
-                  <p class="description">
-                    <strong>THE FOUNDATION:</strong> Black Pepper vines are cultivated using traditional methods in the rich, humid climate of Kerala's Western Ghats. The vines are grown on living support trees following sustainable farming practices without chemical fertilizers or pesticides.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="bcul.jpg" alt="Black pepper cultivation" />
-                </div>
-              </div>
-            </div>
-          `
-        },
-        'long-pepper': {
-          title: '🌶️ Long Pepper (Pippali) Journey',
-          content: `
-            <div class="ingredient-journey-header">
-              <div class="ingredient-journey-image">
-                <img src="long-pepper-harvest.jpg" alt="Long Pepper" />
-                <div class="ingredient-badge">
-                  <span class="verified-icon">✓</span>
-                  <span>Long Pepper - Verified</span>
-                </div>
-              </div>
-              <div class="ingredient-details">
-                <h4>Long Pepper (Piper longum)</h4>
-                <p class="origin-info">📍 Origin: Karnataka Hills</p>
-                <p class="benefit-info">💪 Benefit: Boosts immunity & respiratory strength</p>
-              </div>
-            </div>
-
-            <div class="timeline ingredient-timeline">
-              <div class="timeline-item">
-                <div class="step-number">4</div>
-                <div class="timeline-content">
-                  <h4>Long Pepper Processing Complete</h4>
-                  <p class="company-name">Traditional Spice Mills</p>
-                  <p class="date">2025-09-16</p>
-                  <p class="description">
-                    Long Pepper spikes are carefully dried and powdered to preserve their alkaloid content. Special care is taken to maintain the structural integrity of the spikes during grinding to preserve maximum therapeutic value.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="long-pepper-processing.jpg" alt="Long pepper processing" />
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="step-number">3</div>
-                <div class="timeline-content">
-                  <h4>Long Pepper Cleaning & Preparation</h4>
-                  <p class="company-name">Karnataka Processing Center</p>
-                  <p class="date">2025-09-12</p>
-                  <p class="description">
-                    Long Pepper spikes are carefully cleaned and sorted. Each spike is inspected for quality and only the best specimens are selected. They undergo natural drying to remove excess moisture while preserving active compounds.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="long-pepper-cleaning.jpg" alt="Long pepper cleaning" />
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="step-number">2</div>
-                <div class="timeline-content">
-                  <h4>Long Pepper Harvesting</h4>
-                  <p class="company-name">Karnataka Hills Pepper Collective</p>
-                  <p class="date">2025-09-08</p>
-                  <p class="description">
-                    Long Pepper spikes are harvested during peak potency period when the catkins are fully mature but still tender. Experienced harvesters ensure optimal timing for maximum alkaloid content.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="long-pepper-harvest.jpg" alt="Long pepper harvesting" />
-                </div>
-              </div>
-
-              <div class="timeline-item foundation">
-                <div class="step-number">1</div>
-                <div class="timeline-content">
-                  <h4>🌱 Long Pepper Plant Cultivation</h4>
-                  <p class="company-name">Karnataka Organic Hills Collective</p>
-                  <p class="date">2025-03-01 to 2025-09-05</p>
-                  <p class="description">
-                    <strong>THE FOUNDATION:</strong> Long Pepper plants are cultivated in the cooler hill stations of Karnataka using natural farming techniques. These climbing shrubs are grown in well-drained soil with organic compost, maintaining traditional cultivation methods.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="lpcul.jpg" alt="Long pepper cultivation" />
-                </div>
-              </div>
-            </div>
-          `
-        },
-        'dry-ginger': {
-          title: '🫚 Dry Ginger (Shunthi) Journey',
-          content: `
-            <div class="ingredient-journey-header">
-              <div class="ingredient-journey-image">
-                <img src="ginger-harvest.jpg" alt="Dry Ginger" />
-                <div class="ingredient-badge">
-                  <span class="verified-icon">✓</span>
-                  <span>Dry Ginger - Verified</span>
-                </div>
-              </div>
-              <div class="ingredient-details">
-                <h4>Dry Ginger (Zingiber officinale)</h4>
-                <p class="origin-info">📍 Origin: Maharashtra Valleys</p>
-                <p class="benefit-info">💪 Benefit: Improves digestion & relieves bloating</p>
-              </div>
-            </div>
-
-            <div class="timeline ingredient-timeline">
-              <div class="timeline-item">
-                <div class="step-number">4</div>
-                <div class="timeline-content">
-                  <h4>Dry Ginger Processing Complete</h4>
-                  <p class="company-name">Traditional Spice Mills</p>
-                  <p class="date">2025-09-16</p>
-                  <p class="description">
-                    Dried ginger rhizomes are ground into fine powder using traditional methods. The grinding process is carefully controlled to preserve gingerol compounds and maintain the characteristic warm, pungent flavor profile.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="ginger-processing.jpg" alt="Dry ginger processing" />
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="step-number">3</div>
-                <div class="timeline-content">
-                  <h4>Ginger Drying Process</h4>
-                  <p class="company-name">Maharashtra Processing Center</p>
-                  <p class="date">2025-09-12</p>
-                  <p class="description">
-                    Fresh Ginger rhizomes undergo traditional sun-drying process. They are cleaned, sliced, and dried under controlled conditions to remove moisture while concentrating the active compounds and developing the characteristic dry ginger properties.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="ginger-drying.jpg" alt="Ginger drying process" />
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="step-number">2</div>
-                <div class="timeline-content">
-                  <h4>Fresh Ginger Harvesting</h4>
-                  <p class="company-name">Maharashtra Valley Farms</p>
-                  <p class="date">2025-09-08</p>
-                  <p class="description">
-                    Fresh Ginger rhizomes are carefully harvested when they reach full maturity. The rhizomes are hand-dug to prevent damage and ensure maximum quality. Only the finest, disease-free rhizomes are selected for drying.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="ginger-harvest.jpg" alt="Ginger harvesting" />
-                </div>
-              </div>
-
-              <div class="timeline-item foundation">
-                <div class="step-number">1</div>
-                <div class="timeline-content">
-                  <h4>🌱 Ginger Field Cultivation</h4>
-                  <p class="company-name">Maharashtra Organic Valley Cooperative</p>
-                  <p class="date">2025-03-01 to 2025-09-05</p>
-                  <p class="description">
-                    <strong>THE FOUNDATION:</strong> Ginger is cultivated in the fertile valleys of Maharashtra using organic farming practices. The rhizomes are grown in well-drained, nutrient-rich soil with regular organic manure application, following traditional sustainable methods.
-                  </p>
-                </div>
-                <div class="timeline-image single">
-                  <img src="gcul.jpg" alt="Ginger cultivation" />
-                </div>
-              </div>
-            </div>
-          `
-        }
-      };
-      
-      return journeys[ingredient];
-    }
-
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-      const aboutModal = document.getElementById('aboutModal');
-      const ingredientsModal = document.getElementById('ingredientsModal');
-      const journeyModal = document.getElementById('ingredientJourneyModal');
-      const certificationsModal = document.getElementById('certificationsModal');
-      
-      if (event.target == aboutModal) {
-        aboutModal.style.display = 'none';
+    // Language data
+    const translations = {
+      en: {
+        'welcome-text': 'Welcome to SURAKSHITHA',
+        'main-title': 'SURAKSHITHA Platform',
+        'main-subtitle': 'Building Trust through Transparency in Ayurvedic Supply Chain',
+        'consumer-title': 'Consumer',
+        'consumer-desc': 'Verify product authenticity, track ingredients, view certifications, and provide feedback on Ayurvedic products.',
+        'cultivator-title': 'Cultivator/Farmer',
+        'cultivator-desc': 'Manage crop data, track market prices, communicate with processors, and monitor supply chain progress.',
+        'manufacturer-title': 'Manufacturer',
+        'manufacturer-desc': 'Source ingredients, manage production processes, handle quality control, and coordinate with suppliers.',
+        'processor-title': 'Processor',
+        'processor-desc': 'Process raw materials, maintain quality standards, track batch information, and coordinate logistics.',
+        'feature1': 'Real-Time Market Analysis',
+        'feature2': 'Multi-Stakeholder Communication',
+        'feature3': 'Reviews & Ratings System',
+        'feature4': 'Grievance Management',
+        'feature5': 'Multilingual Support',
+        'feature6': 'Blockchain Traceability',
+        'quick-access': 'Quick Access',
+        'footer-text': '© 2025 SURAKSHITHA | Building Trust through Transparency'
+      },
+      hi: {
+        'welcome-text': 'सुरक्षिता में आपका स्वागत है',
+        'main-title': 'सुरक्षिता प्लेटफॉर्म',
+        'main-subtitle': 'आयुर्वेदिक आपूर्ति श्रृंखला में पारदर्शिता के माध्यम से विश्वास का निर्माण',
+        'consumer-title': 'उपभोक्ता',
+        'consumer-desc': 'उत्पाद की प्रामाणिकता सत्यापित करें, सामग्री को ट्रैक करें, प्रमाणपत्र देखें, और आयुर्वेदिक उत्पादों पर फीडबैक प्रदान करें।',
+        'cultivator-title': 'कृषक/किसान',
+        'cultivator-desc': 'फसल डेटा प्रबंधित करें, बाजार की कीमतों को ट्रैक करें, प्रोसेसर के साथ संवाद करें, और आपूर्ति श्रृंखला की प्रगति की निगरानी करें।',
+        'manufacturer-title': 'निर्माता',
+        'manufacturer-desc': 'सामग्री प्राप्त करें, उत्पादन प्रक्रियाओं का प्रबंधन करें, गुणवत्ता नियंत्रण संभालें, और आपूर्तिकर्ताओं के साथ समन्वय करें।',
+        'processor-title': 'प्रोसेसर',
+        'processor-desc': 'कच्चे माल को संसाधित करें, गुणवत्ता मानकों को बनाए रखें, बैच जानकारी को ट्रैक करें, और रसद का समन्वय करें।',
+        'feature1': 'रीयल-टाइम बाजार विश्लेषण',
+        'feature2': 'बहु-हितधारक संचार',
+        'feature3': 'समीक्षा और रेटिंग सिस्टम',
+        'feature4': 'शिकायत प्रबंधन',
+        'feature5': 'बहुभाषी समर्थन',
+        'feature6': 'ब्लॉकचेन ट्रेसेबिलिटी',
+        'quick-access': 'त्वरित पहुंच',
+        'footer-text': '© 2025 सुरक्षिता | पारदर्शिता के माध्यम से विश्वास का निर्माण'
       }
-      if (event.target == ingredientsModal) {
-        ingredientsModal.style.display = 'none';
+      // Additional languages can be added here
+    };
+
+    function changeLanguage(lang) {
+      if (translations[lang]) {
+        Object.keys(translations[lang]).forEach(key => {
+          const element = document.getElementById(key);
+          if (element) {
+            element.textContent = translations[lang][key];
+          }
+        });
       }
-      if (event.target == journeyModal) {
-        journeyModal.style.display = 'none';
-      }
-      if (event.target == certificationsModal) {
-        certificationsModal.style.display = 'none';
+    }
+
+    function selectRole(role) {
+      switch(role) {
+        case 'consumer':
+          window.location.href = 'consumer-dashboard.html';
+          break;
+        case 'cultivator':
+          window.location.href = 'cultivator-dashboard.html';
+          break;
+        case 'manufacturer':
+          window.location.href = 'manufacturer-dashboard.html';
+          break;
+        case 'processor':
+          window.location.href = 'processor-dashboard.html';
+          break;
+        default:
+          alert('Role selection coming soon!');
       }
     }
   </script>

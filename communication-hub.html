@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communication Hub - SURAKSHITHA</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .chat-sidebar {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      height: 500px;
+      overflow-y: auto;
+    }
+    .chat-main {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-item {
+      padding: 0.8rem;
+      border-bottom: 1px solid #e0e0e0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .contact-item:hover {
+      background: #f8f9fa;
+    }
+    .contact-item.active {
+      background: linear-gradient(135deg, #e8f5e8, #f0f9f0);
+      border-left: 4px solid #4a7c59;
+    }
+    .contact-name {
+      font-weight: bold;
+      color: #2d5016;
+    }
+    .contact-role {
+      font-size: 0.8rem;
+      color: #666;
+    }
+    .contact-status {
+      font-size: 0.8rem;
+      color: #28a745;
+    }
+    .contact-status.offline {
+      color: #6c757d;
+    }
+    .chat-header {
+      padding: 1rem;
+      border-bottom: 2px solid #e0e0e0;
+      background: linear-gradient(135deg, #4a7c59, #2d5016);
+      color: white;
+      border-radius: 10px 10px 0 0;
+      margin: -1rem -1rem 1rem -1rem;
+    }
+    .message-input-area {
+      border-top: 2px solid #e0e0e0;
+      padding: 1rem 0 0 0;
+      margin-top: auto;
+    }
+    .online-indicator {
+      width: 8px;
+      height: 8px;
+      background: #28a745;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    .offline-indicator {
+      width: 8px;
+      height: 8px;
+      background: #6c757d;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    .unread-count {
+      background: #dc3545;
+      color: white;
+      border-radius: 12px;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: bold;
+      float: right;
+    }
+    .message-attachment {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="brand-icon">🌿</div>
+      <h1>SURAKSHITHA</h1>
+    </div>
+    <div class="user-info">
+      <div class="language-switcher">
+        <select class="language-dropdown">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="ta">தமிழ்</option>
+          <option value="kn">ಕನ್ನಡ</option>
+        </select>
+      </div>
+      <span>Communication Hub</span>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-item">🏠 Home</a>
+    <a href="market-analysis.html" class="nav-item">📊 Market Analysis</a>
+    <a href="#" class="nav-item active">💬 Communications</a>
+    <a href="reviews-ratings.html" class="nav-item">⭐ Reviews & Ratings</a>
+    <a href="grievance-system.html" class="nav-item">🎯 Grievances</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="home-content">
+    <div class="dashboard-header">
+      <h2>COMMUNICATION HUB</h2>
+      <p class="subtitle">Connect and collaborate with all stakeholders across the supply chain</p>
+    </div>
+
+    <!-- Communication Stats -->
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <div class="stat-number">24</div>
+        <div class="stat-label">Active Conversations</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">156</div>
+        <div class="stat-label">Network Connections</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Unread Messages</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">98.5%</div>
+        <div class="stat-label">Response Rate</div>
+      </div>
+    </div>
+
+    <!-- Main Chat Interface -->
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; margin: 2rem 0;">
+
+      <!-- Contacts Sidebar -->
+      <div class="chat-sidebar">
+        <h4 style="margin-bottom: 1rem; color: #2d5016;">🌐 Your Network</h4>
+
+        <!-- Search -->
+        <div class="form-group">
+          <input type="text" class="form-input" placeholder="🔍 Search contacts..." style="margin-bottom: 1rem;">
+        </div>
+
+        <!-- Filter Tabs -->
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+          <button class="btn btn-secondary" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;" onclick="filterContacts('all')">All</button>
+          <button class="btn btn-primary" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;" onclick="filterContacts('online')">Online</button>
+          <button class="btn btn-ingredients" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;" onclick="filterContacts('buyers')">Buyers</button>
+        </div>
+
+        <!-- Contacts List -->
+        <div class="contact-item active" onclick="selectContact('kerala-spice')">
+          <div class="contact-name">
+            <span class="online-indicator"></span>
+            Kerala Spice Processing Co.
+            <span class="unread-count">3</span>
+          </div>
+          <div class="contact-role">Processor • Kerala</div>
+          <div class="contact-status">Online now</div>
+        </div>
+
+        <div class="contact-item" onclick="selectContact('ayurveda-naturals')">
+          <div class="contact-name">
+            <span class="online-indicator"></span>
+            Ayurveda Naturals Pvt Ltd
+            <span class="unread-count">1</span>
+          </div>
+          <div class="contact-role">Manufacturer • Karnataka</div>
+          <div class="contact-status">Online • Active buyer</div>
+        </div>
+
+        <div class="contact-item" onclick="selectContact('traditional-medicine')">
+          <div class="contact-name">
+            <span class="offline-indicator"></span>
+            Traditional Medicine Corp
+          </div>
+          <div class="contact-role">Manufacturer • Tamil Nadu</div>
+          <div class="contact-status offline">Last seen 2h ago</div>
+        </div>
+
+        <div class="contact-item" onclick="selectContact('karnataka-hills')">
+          <div class="contact-name">
+            <span class="online-indicator"></span>
+            Karnataka Hills Collective
+          </div>
+          <div class="contact-role">Cultivator Group • Karnataka</div>
+          <div class="contact-status">Online • 12 members</div>
+        </div>
+
+        <div class="contact-item" onclick="selectContact('organic-pharma')">
+          <div class="contact-name">
+            <span class="offline-indicator"></span>
+            Organic Pharmaceuticals Ltd
+          </div>
+          <div class="contact-role">Manufacturer • Maharashtra</div>
+          <div class="contact-status offline">Last seen yesterday</div>
+        </div>
+
+        <div class="contact-item" onclick="selectContact('wellness-mumbai')">
+          <div class="contact-name">
+            <span class="online-indicator"></span>
+            Wellness Center Mumbai
+          </div>
+          <div class="contact-role">Consumer • Mumbai</div>
+          <div class="contact-status">Online • Bulk buyer</div>
+        </div>
+      </div>
+
+      <!-- Chat Area -->
+      <div class="chat-main">
+        <div class="chat-header">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h4 style="margin: 0;">Kerala Spice Processing Co.</h4>
+              <small>Processor • Online now • Responds in ~30 min</small>
+            </div>
+            <div>
+              <button class="btn btn-secondary" style="padding: 0.5rem; margin-left: 0.5rem;" onclick="callContact()">📞</button>
+              <button class="btn btn-ingredients" style="padding: 0.5rem; margin-left: 0.5rem;" onclick="videoCall()">📹</button>
+              <button class="btn btn-certifications" style="padding: 0.5rem; margin-left: 0.5rem;" onclick="shareFiles()">📎</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" style="flex: 1; overflow-y: auto; padding: 1rem 0;">
+          <div class="message">
+            <div class="message-header">
+              Kerala Spice Processing Co.
+              <span class="message-time">2 hours ago</span>
+            </div>
+            <p>Hello Ram! We're interested in purchasing your Black Pepper harvest. Can we discuss quantity and pricing? Our current offer is ₹870/kg for premium quality - that's ₹20 above market rate!</p>
+            <div class="message-attachment">
+              📄 Purchase_Order_Template.pdf (245 KB)
+            </div>
+          </div>
+
+          <div class="message sent">
+            <div class="message-header">
+              You
+              <span class="message-time">1 hour ago</span>
+            </div>
+            <p>Thank you for your interest! I have approximately 72kg of premium black pepper ready for harvest next week. Quality certificates are available and all organic standards maintained.</p>
+          </div>
+
+          <div class="message sent">
+            <div class="message-header">
+              You
+              <span class="message-time">1 hour ago</span>
+            </div>
+            <p>Your offer of ₹870/kg is very competitive. When would you like to schedule the quality inspection? I can arrange for you to visit the farm this weekend.</p>
+            <div class="message-attachment">
+              📄 Quality_Certificate_BP_2025.pdf (156 KB)
+            </div>
+          </div>
+
+          <div class="message">
+            <div class="message-header">
+              Kerala Spice Processing Co.
+              <span class="message-time">45 minutes ago</span>
+            </div>
+            <p>Excellent! Saturday morning works perfect for inspection. Our quality team will visit around 10 AM. If quality meets our standards, we can finalize the deal immediately.</p>
+          </div>
+
+          <div class="message">
+            <div class="message-header">
+              Kerala Spice Processing Co.
+              <span class="message-time">30 minutes ago</span>
+            </div>
+            <p>Also, we have an upcoming requirement for Long Pepper in December. Would you be interested in a long-term supply contract? We can offer better rates for committed suppliers.</p>
+          </div>
+
+          <div class="message">
+            <div class="message-header">
+              Kerala Spice Processing Co.
+              <span class="message-time">15 minutes ago</span>
+            </div>
+            <p>One more thing - payment terms are NET 7 days after quality verification. Bank transfer with all transaction details recorded on blockchain for transparency.</p>
+          </div>
+        </div>
+
+        <!-- Message Input -->
+        <div class="message-input-area">
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <button class="btn btn-secondary" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;" onclick="insertTemplate('agreement')">📋 Agreement Template</button>
+            <button class="btn btn-ingredients" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;" onclick="insertTemplate('quality')">🏆 Quality Specs</button>
+            <button class="btn btn-certifications" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;" onclick="insertTemplate('pricing')">💰 Price Quote</button>
+          </div>
+          <div style="display: flex; gap: 1rem;">
+            <textarea class="form-textarea" placeholder="Type your message..." style="flex: 1; min-height: 60px; resize: vertical;"></textarea>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <button class="btn btn-primary" onclick="sendMessage()">📤 Send</button>
+              <button class="btn btn-secondary" onclick="attachFile()">📎 Attach</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="market-analysis">
+      <h3>🚀 Quick Communication Actions</h3>
+      <div class="action-buttons">
+        <button class="btn btn-primary" onclick="broadcastMessage()">📢 Broadcast to Network</button>
+        <button class="btn btn-secondary" onclick="createGroup()">👥 Create Group Chat</button>
+        <button class="btn btn-ingredients" onclick="scheduleMessage()">⏰ Schedule Message</button>
+        <button class="btn btn-certifications" onclick="sendPriceAlert()">💰 Send Price Alert</button>
+        <button class="btn btn-primary" onclick="shareLocation()">📍 Share Location</button>
+        <button class="btn btn-secondary" onclick="requestQuote()">📋 Request Quote</button>
+      </div>
+    </div>
+
+    <!-- Recent Notifications -->
+    <div class="communication-panel">
+      <h3>🔔 Recent Notifications & Updates</h3>
+      <div class="chat-messages">
+        <div class="message">
+          <div class="message-header">
+            New Connection Request
+            <span class="message-time">30 minutes ago</span>
+          </div>
+          <p><strong>Himalayan Herbs Collective</strong> wants to connect with you. They specialize in high-altitude medicinal herbs and are looking for trusted suppliers for their upcoming expansion.</p>
+          <div style="margin-top: 0.5rem;">
+            <button class="btn btn-primary" style="padding: 0.3rem 0.8rem;">✅ Accept</button>
+            <button class="btn btn-secondary" style="padding: 0.3rem 0.8rem;">❌ Decline</button>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="message-header">
+            Price Alert Triggered
+            <span class="message-time">1 hour ago</span>
+          </div>
+          <p>🚨 <strong>Black Pepper</strong> price alert: Current rate ₹850/kg has exceeded your target of ₹840/kg. 3 buyers in your network are actively looking to purchase.</p>
+          <div style="margin-top: 0.5rem;">
+            <button class="btn btn-primary" style="padding: 0.3rem 0.8rem;">📞 Contact Buyers</button>
+          </div>
+        </div>
+
+        <div class="message">
+          <div class="message-header">
+            Quality Certificate Reminder
+            <span class="message-time">3 hours ago</span>
+          </div>
+          <p>📜 Your organic certification for <strong>Turmeric cultivation</strong> expires in 30 days. Renewal process takes 2-3 weeks. Schedule inspection soon to avoid supply disruption.</p>
+        </div>
+
+        <div class="message">
+          <div class="message-header">
+            Group Message
+            <span class="message-time">5 hours ago</span>
+          </div>
+          <p>📢 <strong>Kerala Spice Cultivators Group:</strong> Government subsidy applications for organic farming equipment are now open. Deadline: October 15, 2025. Apply early for better processing.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Communication Analytics -->
+    <div class="market-analysis">
+      <h3>📊 Communication Analytics</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Contact</th>
+            <th>Messages Exchanged</th>
+            <th>Response Time</th>
+            <th>Business Value</th>
+            <th>Last Interaction</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Kerala Spice Processing Co.</strong></td>
+            <td>247 messages</td>
+            <td>32 minutes</td>
+            <td class="price-up">₹2,45,000</td>
+            <td>15 minutes ago</td>
+            <td><span class="price-up">Active Deal</span></td>
+          </tr>
+          <tr>
+            <td><strong>Ayurveda Naturals Pvt Ltd</strong></td>
+            <td>189 messages</td>
+            <td>1.2 hours</td>
+            <td class="price-up">₹1,89,000</td>
+            <td>2 hours ago</td>
+            <td><span class="price-stable">Regular Customer</span></td>
+          </tr>
+          <tr>
+            <td><strong>Traditional Medicine Corp</strong></td>
+            <td>156 messages</td>
+            <td>4.5 hours</td>
+            <td class="price-stable">₹1,23,000</td>
+            <td>1 day ago</td>
+            <td><span class="price-stable">Seasonal Buyer</span></td>
+          </tr>
+          <tr>
+            <td><strong>Organic Pharmaceuticals</strong></td>
+            <td>98 messages</td>
+            <td>2.1 hours</td>
+            <td class="price-down">₹45,000</td>
+            <td>3 days ago</td>
+            <td><span class="price-down">Potential Lead</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="btn btn-primary" onclick="exportChats()">💾 Export Chat History</button>
+      <button class="btn btn-secondary" onclick="blockUser()">🚫 Manage Blocked Users</button>
+      <button class="btn btn-ingredients" onclick="privacySettings()">🔒 Privacy Settings</button>
+      <button class="btn btn-certifications" onclick="reportUser()">🚨 Report User</button>
+      <button class="btn btn-primary" onclick="backupChats()">☁️ Backup Conversations</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 SURAKSHITHA | Secure Communication Platform for Supply Chain</p>
+  </footer>
+
+  <script>
+    let activeContact = 'kerala-spice';
+
+    function selectContact(contactId) {
+      // Remove active class from all contacts
+      document.querySelectorAll('.contact-item').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Add active class to selected contact
+      event.target.closest('.contact-item').classList.add('active');
+
+      activeContact = contactId;
+      loadChatHistory(contactId);
+    }
+
+    function loadChatHistory(contactId) {
+      // This would load chat history from backend
+      console.log(`Loading chat history for ${contactId}`);
+    }
+
+    function filterContacts(type) {
+      console.log(`Filtering contacts by ${type}`);
+      // This would filter the contacts list
+    }
+
+    function sendMessage() {
+      const messageArea = document.querySelector('.message-input-area textarea');
+      const message = messageArea.value.trim();
+
+      if (!message) {
+        alert('Please type a message');
+        return;
+      }
+
+      // Add message to chat (simulation)
+      const chatMessages = document.querySelector('.chat-messages');
+      const newMessage = document.createElement('div');
+      newMessage.className = 'message sent';
+      newMessage.innerHTML = `
+        <div class="message-header">
+          You
+          <span class="message-time">Just now</span>
+        </div>
+        <p>${message}</p>
+      `;
+      chatMessages.appendChild(newMessage);
+
+      // Clear input
+      messageArea.value = '';
+
+      // Scroll to bottom
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function callContact() {
+      alert('Initiating voice call with Kerala Spice Processing Co.\n\nThis would start an integrated voice call through the platform.');
+    }
+
+    function videoCall() {
+      alert('Starting video call with Kerala Spice Processing Co.\n\nThis would launch the integrated video conferencing feature.');
+    }
+
+    function shareFiles() {
+      alert('File sharing options:\n\n• Upload documents (PDF, DOC, XLS)\n• Share images (quality photos, certificates)\n• Send contracts and agreements\n• Share location and farm details');
+    }
+
+    function insertTemplate(type) {
+      const textarea = document.querySelector('.message-input-area textarea');
+      let template = '';
+
+      switch(type) {
+        case 'agreement':
+          template = 'Supply Agreement Terms:\n- Quantity: [Amount] kg\n- Quality: Premium grade\n- Price: ₹[Amount]/kg\n- Delivery: [Date]\n- Payment: NET [Days] days\n- Quality assurance included';
+          break;
+        case 'quality':
+          template = 'Quality Specifications:\n- Organic certified: Yes\n- Moisture content: <12%\n- Purity: >98%\n- Free from pesticides\n- Third-party lab tested\n- Blockchain verified';
+          break;
+        case 'pricing':
+          template = 'Price Quotation:\n- Current market rate: ₹[X]/kg\n- Our quality premium: +₹[Y]/kg\n- Total offered price: ₹[Z]/kg\n- Valid until: [Date]\n- Bulk discount available';
+          break;
+      }
+
+      textarea.value = template;
+    }
+
+    function attachFile() {
+      alert('File attachment feature:\n\n• Drag and drop files\n• Maximum 25MB per file\n• Supports: PDF, DOC, XLS, JPG, PNG\n• Automatic virus scanning\n• Secure encrypted storage');
+    }
+
+    function broadcastMessage() {
+      alert('Broadcast Message Options:\n\n• Send to all network contacts\n• Target specific user types\n• Schedule delivery time\n• Track message delivery\n• Set expiration date');
+    }
+
+    function createGroup() {
+      alert('Create Group Chat:\n\n• Add multiple contacts\n• Set group purpose\n• Assign admin roles\n• Configure permissions\n• Share common resources');
+    }
+
+    function scheduleMessage() {
+      alert('Schedule Message Feature:\n\n• Set future delivery time\n• Recurring messages\n• Time zone awareness\n• Automatic reminders\n• Bulk scheduling options');
+    }
+
+    function sendPriceAlert() {
+      alert('Send Price Alert:\n\n• Notify about current rates\n• Share market trends\n• Include quality details\n• Add urgency level\n• Track buyer responses');
+    }
+
+    function shareLocation() {
+      alert('Share Location Feature:\n\n• Farm location coordinates\n• Delivery address\n• Meeting point\n• Route optimization\n• Real-time tracking');
+    }
+
+    function requestQuote() {
+      alert('Request Quote Template:\n\n• Specify requirements\n• Include quantity needed\n• Set quality parameters\n• Add deadline\n• Compare multiple quotes');
+    }
+
+    function exportChats() {
+      alert('Export Options:\n\n• PDF conversation history\n• Excel transaction summary\n• Backup all conversations\n• Select date ranges\n• Include attachments');
+    }
+
+    function blockUser() {
+      alert('User Management:\n\n• Block unwanted contacts\n• Report spam/abuse\n• Manage privacy settings\n• Control message requests\n• Review blocked list');
+    }
+
+    function privacySettings() {
+      alert('Privacy Controls:\n\n• Who can contact you\n• Message delivery settings\n• Online status visibility\n• Profile information sharing\n• Data retention policies');
+    }
+
+    function reportUser() {
+      alert('Report User:\n\n• Spam/abuse reporting\n• Fraudulent activity\n• Quality disputes\n• Terms violation\n• Anonymous reporting option');
+    }
+
+    function backupChats() {
+      alert('Backup Options:\n\n• Cloud storage backup\n• Local device backup\n• Automatic daily backups\n• Selective conversation backup\n• Restore from backup');
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Communication Hub loaded successfully');
+
+      // Auto-scroll chat to bottom
+      const chatMessages = document.querySelector('.chat-messages');
+      if (chatMessages) {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    });
+
+    // Handle Enter key in message input
+    document.addEventListener('keypress', function(e) {
+      if (e.target.matches('.message-input-area textarea') && e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>

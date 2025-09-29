@@ -1,9 +1,485 @@
-/* Modal Product Image Section */
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 100%);
+  color: #2c5530;
+  line-height: 1.6;
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-icon {
+  font-size: 2rem;
+  animation: pulse 2s infinite;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-role {
+  background: rgba(255,255,255,0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Navigation */
+.nav-menu {
+  background: #3d6b3d;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-item:hover, .nav-item.active {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Main Content */
+.home-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h2 {
+  font-size: 2.5rem;
+  color: #2d5016;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #4a7c59;
+  margin-bottom: 1rem;
+}
+
+/* Role Selection */
+.role-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.role-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  border-color: #4a7c59;
+}
+
+.role-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.role-card h3 {
+  color: #2d5016;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.role-description {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Product Card */
+.product-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.product-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.product-info h3 {
+  color: #2d5016;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.verification-badge {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.batch-id {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2d5016, #4a7c59);
+  color: white;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+}
+
+.btn-ingredients {
+  background: linear-gradient(135deg, #17a2b8, #138496);
+  color: white;
+}
+
+.btn-certifications {
+  background: linear-gradient(135deg, #ffc107, #e0a800);
+  color: #212529;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Status Message */
+.status-message {
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+  margin-top: 1rem;
+}
+
+/* Dashboard Stats */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  border-left: 4px solid #4a7c59;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2d5016;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Market Analysis */
+.market-analysis {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  margin: 2rem 0;
+}
+
+.price-trend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.price-up {
+  color: #28a745;
+}
+
+.price-down {
+  color: #dc3545;
+}
+
+.price-stable {
+  color: #6c757d;
+}
+
+/* Communication Panel */
+.communication-panel {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  margin: 2rem 0;
+}
+
+.chat-messages {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.message {
+  background: #f8f9fa;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  border-left: 3px solid #4a7c59;
+}
+
+.message.sent {
+  background: #e3f2fd;
+  border-left-color: #2196f3;
+  margin-left: 20%;
+}
+
+.message-header {
+  font-weight: bold;
+  color: #2d5016;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.message-time {
+  font-size: 0.8rem;
+  color: #666;
+  float: right;
+}
+
+/* Reviews and Ratings */
+.reviews-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  margin: 2rem 0;
+}
+
+.review-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating-stars {
+  color: #ffc107;
+  font-size: 1.2rem;
+}
+
+.review-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2d5016;
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: none;
+  border-color: #4a7c59;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.data-table th {
+  background: #4a7c59;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.data-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.data-table tr:hover {
+  background: #f8f9fa;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: modalSlideIn 0.3s ease;
+}
+
 .modal-header {
-  background: linear-gradient(135deg, #1b5e20, #2e7d32);
+  background: linear-gradient(135deg, #2d5016, #4a7c59);
   color: white;
   padding: 1.5rem 2rem;
-  border-radius: 12px 12px 0 0;
+  border-radius: 15px 15px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,1424 +495,230 @@
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
-  line-height: 1;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s;
+  transition: color 0.3s ease;
 }
 
 .close:hover {
-  background: rgba(255,255,255,0.2);
+  color: #ddd;
 }
 
 .modal-body {
   padding: 2rem;
-  line-height: 1.6;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
-.modal-body h4 {
-  color: #1b5e20;
-  font-size: 1.2rem;
-  margin: 1.5rem 0 0.8rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.modal-body h4:first-child {
-  margin-top: 0;
-}
-
-.modal-body ul {
-  margin: 0.5rem 0 1rem 1.5rem;
-  padding: 0;
-}
-
-.modal-body li {
-  margin-bottom: 0.5rem;
-  color: #4a6741;
-}
-
-.modal-body strong {
-  color: #1b5e20;
-}
-
-.modal-body em {
-  color: #2e7d32;
-  font-style: italic;
-}
-
-.modal-body p {
-  color: #4a6741;
-  margin: 0.5rem 0 1rem 0;
-}
-
-.ingredients-section {
-  background: #f1f8e9;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #4caf50;
-  margin-bottom: 1.5rem;
-}
-
-.caution-section {
-  background: #fff8e1;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #ff9800;
-  margin: 1.5rem 0;
-}
-
-.usage-section {
-  background: #e8f5e8;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #2e7d32;
-  margin: 1.5rem 0;
-}
-
-.benefits-section {
-  background: #f3e5f5;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #66bb6a;
-  margin: 1.5rem 0;
-}
-
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", "Inter", sans-serif;
-}
-
-body {
-  background-color: #f8fbf8;
-  color: #2d4a2d;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* Header */
-.header {
-  background: linear-gradient(135deg, #1b5e20, #2e7d32);
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-}
-
-.header-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.brand-icon {
-  font-size: 1.8rem;
-}
-
-.header h1 {
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-
-.user-info {
-  font-size: 0.95rem;
-}
-
-.back-nav .back-btn {
-  color: white;
-  text-decoration: none;
-  font-size: 0.95rem;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.2);
-  transition: background 0.3s;
-}
-
-.back-nav .back-btn:hover {
-  background: rgba(255,255,255,0.3);
-}
-
-/* Dashboard Content */
-.home-content {
+/* Ingredient Journey Modal */
+.ingredient-journey-content {
   max-width: 1000px;
-  margin: 2rem auto;
-  padding: 0 2rem;
 }
 
-.dashboard-header {
-  text-align: left;
-  margin-bottom: 2rem;
-}
-
-.dashboard-header h2 {
-  font-size: 2.2rem;
-  color: #1b5e20;
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  color: #4a6741;
-}
-
-/* Product Card */
-.product-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  padding: 2rem;
+.ingredient-journey-header {
   display: flex;
   gap: 2rem;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-
-.product-image img {
-  width: 200px;
-  height: auto;
-  min-height: 150px;
-  max-height: 250px;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  background: #f8f9fa;
-}
-
-.product-info {
-  flex: 1;
-}
-
-.product-info h3 {
-  font-size: 1.8rem;
-  color: #1b5e20;
-  margin-bottom: 1rem;
-}
-
-.verification-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #e8f5e8;
-  color: #1b5e20;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-.verified-icon {
-  background: #2e7d32;
-  color: white;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.batch-id {
-  font-size: 1.1rem;
-  color: #4a6741;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-}
-
-.action-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.btn {
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  font-weight: 500;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.btn-primary {
-  background: #2e7d32;
-  color: white;
-}
-
-.btn-primary:hover {
-  background: #1b5e20;
-  transform: translateY(-1px);
-}
-
-.btn-secondary {
-  background: #e8f5e8;
-  color: #1b5e20;
-  border: 1px solid #c8e6c9;
-}
-
-.btn-secondary:hover {
-  background: #c8e6c9;
-}
-
-.btn-scan {
-  background: #388e3c;
-  color: white;
-  font-size: 1.1rem;
-  padding: 1rem 2rem;
-  margin: 0 auto;
-  display: inline-block;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  border-radius: 8px;
-  font-weight: 500;
-  min-width: 200px;
-}
-
-.btn-scan:hover {
-  background: #2e7d32;
-  transform: translateY(-1px);
-}
-
-.btn-scan:disabled {
-  background: #a5d6a7;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* QR Scanner Input Styling */
-#qr-input {
-  position: absolute;
-  left: -9999px;
-  visibility: hidden;
-}
-
-.status-message {
-  background: #e8f5e8;
-  color: #1b5e20;
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #2e7d32;
-  font-size: 0.95rem;
-}
-
-/* Product Header Section */
-.product-header {
-  background: white;
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 1000px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.product-info-header h2 {
-  font-size: 2rem;
-  color: #1b5e20;
-  margin-bottom: 1rem;
-}
-
-/* Journey Section */
-.journey-section {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 0 2rem;
-}
-
-.journey-title {
-  font-size: 1.8rem;
-  color: #1b5e20;
   margin-bottom: 2rem;
+  align-items: center;
+}
+
+.ingredient-journey-image {
+  position: relative;
+}
+
+.ingredient-journey-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.ingredient-badge {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
-/* Timeline */
+/* Timeline Styles */
 .timeline {
   position: relative;
-  padding-left: 2rem;
+  padding: 2rem 0;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 30px;
+  left: 50px;
   top: 0;
   bottom: 0;
   width: 3px;
-  background: linear-gradient(to bottom, #2e7d32, #66bb6a);
+  background: linear-gradient(to bottom, #4a7c59, #28a745);
 }
 
 .timeline-item {
-  display: flex;
-  margin-bottom: 3rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  overflow: hidden;
   position: relative;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 .step-number {
-  background: #2e7d32;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #2d5016, #4a7c59);
   color: white;
-  width: 60px;
-  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  flex-shrink: 0;
   z-index: 2;
-  border: 4px solid white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .timeline-content {
-  flex: 1;
-  padding: 2rem 2rem 2rem 5rem;
+  flex-grow: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-left: 4px solid #4a7c59;
 }
 
 .timeline-content h4 {
-  font-size: 1.4rem;
-  color: #1b5e20;
+  color: #2d5016;
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-size: 1.3rem;
 }
 
 .company-name {
-  font-weight: 500;
-  color: #2e7d32;
+  color: #4a7c59;
+  font-weight: 600;
   margin-bottom: 0.3rem;
 }
 
 .date {
+  color: #666;
   font-size: 0.9rem;
-  color: #6a8e6a;
   margin-bottom: 1rem;
 }
 
-.description {
-  color: #4a6741;
-  line-height: 1.6;
-}
-
-/* Timeline Image Layouts */
 .timeline-image {
-  width: 300px;
-  padding: 1.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.timeline-image.single {
-  width: 300px;
-}
-
-.timeline-image.single img {
-  width: 100%;
-  height: auto;
-  min-height: 150px;
-  max-height: 250px;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  background: #f8f9fa;
-}
-
-/* Triple Images Layout */
-.timeline-images.triple {
-  width: 450px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.image-group {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  background: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border-left: 3px solid #4caf50;
-}
-
-.image-group img {
-  width: 100px;
-  height: auto;
-  min-height: 60px;
-  max-height: 100px;
-  object-fit: contain;
-  border-radius: 6px;
-  flex-shrink: 0;
-  background: #f8f9fa;
-}
-
-.ingredient-label {
-  font-size: 0.9rem;
-  color: #1b5e20;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.ingredient-label small {
-  color: #4a6741;
-  font-size: 0.8rem;
-  display: block;
-  margin-top: 0.2rem;
-}
-
-/* Foundation Step Styling */
-.foundation .timeline-images.triple {
-  border: 2px dashed #4caf50;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
-}
-
-.foundation-images .image-group {
-  border-left: 4px solid #2e7d32;
-  background: rgba(255,255,255,0.9);
-}
-
-/* New Step Styling for Full History */
-.final-step {
-  background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
-  border-left: 6px solid #1b5e20;
-  border-radius: 12px;
-}
-
-.final-step .step-number {
-  background: #1b5e20;
-}
-
-.packaging-step {
-  background: linear-gradient(135deg, #f3e5f5, #e1bee7);
-  border-left: 6px solid #66bb6a;
-  border-radius: 12px;
-}
-
-.packaging-step .step-number {
-  background: #66bb6a;
-}
-
-.blending-step {
-  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-  border-left: 6px solid #ff9800;
-  border-radius: 12px;
-  position: relative;
-}
-
-.blending-step .step-number {
-  background: #ff9800;
-  box-shadow: 0 0 20px rgba(255,152,0,0.4);
-  animation: pulse 2s infinite;
-}
-
-/* Journey Note */
-.journey-note {
-  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-bottom: 2rem;
-  border-left: 4px solid #2196f3;
-}
-
-.journey-note p {
-  color: #0d47a1;
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.ingredient-link {
-  color: #1565c0;
-  text-decoration: underline;
-  font-weight: 500;
-}
-
-.ingredient-link:hover {
-  color: #0d47a1;
-}
-
-/* Ingredients Summary Section */
-.ingredients-summary {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  padding: 2rem;
-  margin: 3rem 0;
-}
-
-.ingredients-summary h3 {
-  color: #1b5e20;
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.summary-description {
-  color: #4a6741;
-  font-size: 1.1rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.ingredients-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.summary-ingredient-card {
-  background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.summary-ingredient-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  border: 2px solid #4caf50;
-}
-
-.ingredient-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.summary-ingredient-card h4 {
-  color: #1b5e20;
-  font-size: 1.2rem;
-  margin-bottom: 0.8rem;
-  font-weight: 600;
-}
-
-.source-location {
-  color: #2e7d32;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.processing-steps {
-  color: #4a6741;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.view-details-btn {
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-.summary-ingredient-card:hover .view-details-btn {
-  background: linear-gradient(135deg, #2e7d32, #4caf50);
-  transform: scale(1.05);
-}
-
-/* Merger Step Styling */
-.merger-step {
-  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-  border: 2px solid #ff9800;
-  border-radius: 12px;
-  position: relative;
-}
-
-.merger-step .timeline-content h4 {
-  color: #e65100;
-  font-size: 1.5rem;
-}
-
-.timeline-image.merger {
-  position: relative;
-}
-
-.timeline-image.merger img {
-  width: 100%;
-  height: auto;
-  min-height: 150px;
-  max-height: 250px;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 6px 20px rgba(255,152,0,0.3);
-  border: 3px solid #ff9800;
-  background: #f8f9fa;
-}
-
-.merger-indicator {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, #ff9800, #f57c00);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  box-shadow: 0 4px 12px rgba(255,152,0,0.4);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: translateX(-50%) scale(1); }
-  50% { transform: translateX(-50%) scale(1.05); }
-  100% { transform: translateX(-50%) scale(1); }
-}
-
-/* Triple Step Styling */
-.triple-step {
-  background: linear-gradient(135deg, #f9fbe7, #f1f8e9);
-  border-left: 6px solid #4caf50;
-  border-radius: 12px;
-}
-
-.triple-step .timeline-content {
-  padding-right: 2rem;
-}
-
-/* Scan Section */
-.scan-section {
-  text-align: center;
-  margin-top: 3rem;
-  padding: 2rem;
-}
-
-/* Footer */
-.footer {
-  background: #1b5e20;
-  color: #e8f5e8;
-  text-align: center;
-  padding: 2rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-}
-
-/* Mobile-First Responsive Design */
-@media (max-width: 768px) {
-  .header {
-    padding: 1rem;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .header-brand h1 {
-    font-size: 1.5rem;
-  }
-  
-  .user-info {
-    font-size: 0.85rem;
-  }
-  
-  .home-content {
-    padding: 0 1rem;
-    margin: 1.5rem auto;
-  }
-  
-  .dashboard-header h2 {
-    font-size: 1.8rem;
-  }
-  
-  .product-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .product-image img {
-    width: 180px;
-    height: auto;
-    min-height: 130px;
-    max-height: 200px;
-    margin: 0 auto 1rem;
-  }
-  
-  .product-info h3 {
-    font-size: 1.5rem;
-  }
-  
-  .action-buttons {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  
-  .btn {
-    padding: 0.9rem 1.2rem;
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Mobile Certifications Styles */
-  .certification-product-info {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-  
-  .cert-product-image {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .cert-product-details h4 {
-    font-size: 1.2rem;
-  }
-  
-  .certifications-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .certification-card {
-    padding: 1.2rem;
-  }
-  
-  .certification-card .cert-icon {
-    font-size: 1.8rem;
-  }
-  
-  .cert-content h5 {
-    font-size: 1rem;
-  }
-  
-  .cert-authority {
-    font-size: 0.85rem;
-  }
-  
-  .cert-number {
-    font-size: 0.8rem;
-  }
-  
-  .cert-validity {
-    font-size: 0.8rem;
-  }
-  
-  .certification-footer {
-    padding: 1rem;
-  }
-  
-  .blockchain-verification h5 {
-    font-size: 1rem;
-  }
-  
-  .blockchain-verification p {
-    font-size: 0.85rem;
-  }
-  
-  .hash-code {
-    font-size: 0.75rem;
-  }
-  
-  /* Mobile Ingredients Grid */
-  .ingredients-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .ingredient-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.5rem;
-  }
-  
-  .ingredient-image img {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .ingredient-info h4 {
-    font-size: 1.2rem;
-  }
-  
-  .ingredient-journey-header {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-  
-  .ingredient-journey-image img {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .ingredient-details h4 {
-    font-size: 1.3rem;
-  }
-
-  /* Mobile Full History Styles */
-  .journey-note {
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .journey-note p {
-    font-size: 0.9rem;
-  }
-  
-  .ingredients-summary {
-    padding: 1.5rem 1rem;
-    margin: 2rem 0;
-  }
-  
-  .ingredients-summary h3 {
-    font-size: 1.4rem;
-  }
-  
-  .summary-description {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .ingredients-cards {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .summary-ingredient-card {
-    padding: 1.2rem;
-  }
-  
-  .ingredient-icon {
-    font-size: 2rem;
-  }
-  
-  .summary-ingredient-card h4 {
-    font-size: 1.1rem;
-  }
-  
-  .source-location {
-    font-size: 0.9rem;
-  }
-  
-  .processing-steps {
-    font-size: 0.85rem;
-  }
-  
-  .view-details-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-  }
-  
-  .product-header {
-    padding: 1.5rem 1rem;
-    margin: 1rem;
-  }
-  
-  .product-info-header h2 {
-    font-size: 1.6rem;
-  }
-  
-  .journey-section {
-    padding: 0 1rem;
-    margin: 1rem auto;
-  }
-  
-  .journey-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .timeline {
-    padding-left: 0;
-  }
-  
-  .timeline::before {
-    left: 20px;
-    width: 2px;
-  }
-  
-  .timeline-item {
-    flex-direction: column;
-    margin-bottom: 2rem;
-    margin-left: 50px;
-  }
-  
-  .step-number {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-    left: -70px;
-    top: 20px;
-    transform: none;
-  }
-  
-  .timeline-content {
-    padding: 1.5rem 1rem;
-  }
-  
-  .timeline-content h4 {
-    font-size: 1.2rem;
-  }
-  
-  .company-name {
-    font-size: 0.95rem;
-  }
-  
-  .date {
-    font-size: 0.85rem;
-  }
-  
-  .description {
-    font-size: 0.9rem;
-  }
-  
-  .timeline-image {
-    width: 100%;
-    padding: 0 1rem 1.5rem;
-    justify-content: center;
-  }
-  
-  .timeline-image img {
-    width: 100%;
-    max-width: 280px;
-    height: 140px;
-  }
-  
-  .timeline-images.triple {
-    width: 100%;
-    padding: 1rem;
-    gap: 1rem;
-  }
-  
-  .image-group {
-    flex-direction: column;
-    text-align: center;
-    padding: 0.8rem;
-    gap: 0.6rem;
-  }
-  
-  .image-group img {
-    width: 80px;
-    height: 60px;
-  }
-  
-  .ingredient-label {
-    font-size: 0.8rem;
-  }
-  
-  .ingredient-label small {
-    font-size: 0.7rem;
-  }
-  
-  .timeline-image.single {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .timeline-image.single img {
-    height: 150px;
-  }
-  
-  .timeline-image.merger {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .timeline-image.merger img {
-    height: 150px;
-  }
-  
-  .merger-indicator {
-    font-size: 0.7rem;
-    padding: 0.3rem 0.6rem;
-  }
-  
-  .modal-product-image img {
-    width: 150px;
-    height: auto;
-    min-height: 120px;
-    max-height: 180px;
-  }
-  
-  .image-caption {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .verified-badge-modal,
-  .batch-info {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
-  }
-  
-  .modal-content {
-    width: 95%;
-    margin: 10% auto;
-    max-height: 80vh;
-  }
-  
-  .ingredient-journey-content {
-    width: 98%;
-    margin: 5% auto;
-  }
-  
-  .modal-header {
-    padding: 1rem 1.5rem;
-  }
-  
-  .modal-header h3 {
-    font-size: 1.3rem;
-  }
-  
-  .close {
-    font-size: 1.5rem;
-    width: 25px;
-    height: 25px;
-  }
-  
-  .modal-body {
-    padding: 1.5rem;
-  }
-  
-  .modal-body h4 {
-    font-size: 1.1rem;
-  }
-  
-  .ingredients-section,
-  .caution-section,
-  .usage-section,
-  .benefits-section {
-    padding: 1rem;
-    margin: 1rem 0;
-  }
-  
-  .quick-scan-section {
-    padding: 1.5rem 1rem;
-    margin-top: 1.5rem;
-  }
-  
-  .scan-section {
-    padding: 1.5rem 1rem;
-  }
-  
-  .btn-scan {
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  .footer {
-    padding: 1.5rem 1rem;
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    padding: 0.8rem;
-  }
-  
-  .header-brand {
-    gap: 0.5rem;
-  }
-  
-  .header-brand h1 {
-    font-size: 1.3rem;
-  }
-  
-  .brand-icon {
-    font-size: 1.5rem;
-  }
-  
-  .user-info {
-    font-size: 0.8rem;
-  }
-  
-  .dashboard-header h2 {
-    font-size: 1.5rem;
-  }
-  
-  .subtitle {
-    font-size: 1rem;
-  }
-  
-  .product-card {
-    padding: 1rem;
-  }
-  
-  .product-image img {
-    width: 150px;
-    height: auto;
-    min-height: 110px;
-    max-height: 170px;
-  }
-  
-  .product-info h3 {
-    font-size: 1.3rem;
-  }
-  
-  .verification-badge {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-  }
-  
-  .batch-id {
-    font-size: 1rem;
-  }
-  
-  .btn {
-    padding: 0.8rem 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .timeline-item {
-    margin-left: 40px;
-    margin-bottom: 1.5rem;
-  }
-  
-  .step-number {
-    width: 35px;
-    height: 35px;
-    font-size: 0.9rem;
-    left: -57px;
-  }
-  
-  .timeline::before {
-    left: 17px;
-  }
-  
-  .timeline-content {
-    padding: 1rem 0.8rem;
-  }
-  
-  .timeline-content h4 {
-    font-size: 1.1rem;
-  }
-  
-  .timeline-image img {
-    height: 120px;
-  }
-  
-  .journey-title {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .header-brand h1 {
-    font-size: 1.1rem;
-  }
-  
-  .dashboard-header h2 {
-    font-size: 1.3rem;
-  }
-  
-  .product-image img {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .product-info h3 {
-    font-size: 1.2rem;
-  }
-  
-  .step-number {
-    width: 30px;
-    height: 30px;
-    font-size: 0.8rem;
-    left: -50px;
-  }
-  
-  .timeline::before {
-    left: 15px;
-  }
-  
-  .timeline-item {
-    margin-left: 35px;
-  }
-}product-image {
-  text-align: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid #ecf0f1;
-}
-
-.modal-product-image img {
   width: 200px;
-  height: auto;
-  min-height: 150px;
-  max-height: 250px;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  margin-bottom: 1rem;
-  background: #f8f9fa;
+  flex-shrink: 0;
 }
 
-.image-caption {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.verified-badge-modal {
-  background: #e8f5e8;
-  color: #1b5e20;
-  padding: 0.4rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.batch-info {
-  background: #f1f8e9;
-  color: #4a6741;
-  padding: 0.4rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-/* Certifications Button */
-.btn-certifications {
-  background: #ff9800;
-  color: white;
-  border: 1px solid #ff9800;
-}
-
-.btn-certifications:hover {
-  background: #f57c00;
-  border: 1px solid #f57c00;
-}
-
-/* Certifications Modal Styles */
-.certifications-header {
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid #ecf0f1;
-}
-
-.certification-product-info {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.cert-product-image {
-  width: 80px;
-  height: 80px;
+.timeline-image img {
+  width: 100%;
+  height: 150px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.cert-product-details h4 {
-  color: #1b5e20;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+.foundation .timeline-content {
+  border-left-color: #28a745;
+  background: linear-gradient(135deg, #f8fff8, #ffffff);
 }
 
-.cert-batch-id {
-  color: #4a6741;
+.foundation .step-number {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+/* Ingredients Grid */
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.ingredient-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.ingredient-card:hover {
+  transform: translateY(-5px);
+}
+
+.ingredient-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.ingredient-info {
+  padding: 1.5rem;
+}
+
+.ingredient-origin {
+  color: #4a7c59;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.ingredient-benefit {
+  color: #666;
   font-size: 0.95rem;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
 }
 
-.cert-verification-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #e8f5e8;
-  color: #1b5e20;
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.85rem;
-  font-weight: 500;
+.view-journey-btn {
+  background: #f8f9fa;
+  padding: 0.8rem;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  color: #4a7c59;
+  font-weight: 600;
+  margin: 1rem -1.5rem -1.5rem -1.5rem;
 }
 
+/* Certifications Grid */
 .certifications-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 
 .certification-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: #f8f9fa;
+  border-radius: 10px;
   padding: 1.5rem;
-  border-left: 4px solid #4caf50;
-  transition: all 0.3s ease;
+  border-left: 4px solid #28a745;
+  display: flex;
+  gap: 1rem;
 }
 
-.certification-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.certification-card .cert-icon {
+.cert-icon {
   font-size: 2rem;
-  margin-bottom: 1rem;
-  display: block;
+  flex-shrink: 0;
 }
 
 .cert-content h5 {
-  color: #1b5e20;
+  color: #2d5016;
+  margin-bottom: 0.8rem;
   font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-  font-weight: 600;
 }
 
-.cert-authority {
-  color: #2e7d32;
+.cert-authority, .cert-number, .cert-validity {
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.cert-number {
-  color: #4a6741;
-  font-size: 0.85rem;
-  margin-bottom: 0.5rem;
-  font-family: monospace;
-}
-
-.cert-validity {
-  color: #4a6741;
-  font-size: 0.85rem;
-  margin-bottom: 0.8rem;
+  color: #666;
+  margin-bottom: 0.3rem;
 }
 
 .cert-status {
@@ -1444,243 +726,209 @@ body {
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: bold;
+  margin-top: 0.5rem;
 }
 
 .cert-status.verified {
-  background: #e8f5e8;
-  color: #1b5e20;
+  background: #d4edda;
+  color: #155724;
 }
 
-.certification-footer {
-  background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #2e7d32;
-}
-
-.blockchain-verification h5 {
-  color: #1b5e20;
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.blockchain-verification p {
-  color: #4a6741;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.hash-code {
-  font-family: monospace;
-  background: rgba(0,0,0,0.1);
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  color: #2e7d32;
-  word-break: break-all;
-}
-
-/* Ingredients Modal Styles */
-.ingredients-intro {
-  text-align: center;
-  color: #4a6741;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background: #f1f8e9;
-  border-radius: 8px;
-  border-left: 4px solid #4caf50;
-}
-
-.ingredients-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.ingredient-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.ingredient-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  border: 2px solid #4caf50;
-}
-
-.ingredient-image {
-  flex-shrink: 0;
-}
-
-.ingredient-image img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.ingredient-info {
-  flex: 1;
-}
-
-.ingredient-info h4 {
-  color: #1b5e20;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.ingredient-origin {
-  color: #2e7d32;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.ingredient-benefit {
-  color: #4a6741;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
-.view-journey-btn {
+/* Language Switcher */
+.language-switcher {
+  position: relative;
   display: inline-block;
 }
 
-.view-journey-btn span {
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+.language-dropdown {
+  background: rgba(255,255,255,0.2);
+  border: none;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  font-size: 0.85rem;
+  cursor: pointer;
   font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  width: fit-content;
 }
 
-/* Individual Ingredient Journey Modal */
-.ingredient-journey-content {
-  max-width: 900px;
-  width: 95%;
-}
-
-.ingredient-journey-header {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
-  border-radius: 12px;
-  border-left: 4px solid #4caf50;
-}
-
-.ingredient-journey-image {
-  flex-shrink: 0;
-  text-align: center;
-}
-
-.ingredient-journey-image img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  margin-bottom: 1rem;
-}
-
-.ingredient-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #e8f5e8;
-  color: #1b5e20;
-  padding: 0.4rem 0.8rem;
+/* Grievance System */
+.grievance-form {
+  background: white;
+  padding: 2rem;
   border-radius: 15px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  margin: 2rem 0;
 }
 
-.ingredient-details h4 {
-  color: #1b5e20;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
+.priority-selector {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 
-.origin-info, .benefit-info {
-  color: #4a6741;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+.priority-option {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.origin-info {
-  color: #2e7d32;
+.priority-option.high {
+  border-color: #dc3545;
+  background: #f8d7da;
 }
 
-/* Ingredient Timeline */
-.ingredient-timeline {
-  margin-top: 2rem;
+.priority-option.medium {
+  border-color: #ffc107;
+  background: #fff3cd;
 }
 
-.ingredient-timeline .timeline-item {
-  background: linear-gradient(135deg, #f9fbe7, #f1f8e9);
-  border-left: 6px solid #4caf50;
+.priority-option.low {
+  border-color: #28a745;
+  background: #d4edda;
 }
 
-/* Modal Styles */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  backdrop-filter: blur(4px);
+.priority-option.selected {
+  font-weight: bold;
+  transform: scale(1.02);
 }
 
-.modal-content {
-  background-color: white;
-  margin: 5% auto;
-  padding: 0;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 600px;
-  max-height: 85vh;
-  overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  animation: modalSlideIn 0.3s ease-out;
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, #2d5016, #4a7c59);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 @keyframes modalSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .product-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .action-buttons {
+    justify-content: center;
+  }
+
+  .timeline::before {
+    left: 30px;
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+
+  .timeline-item {
+    gap: 1rem;
+  }
+
+  .timeline-image {
+    width: 150px;
+  }
+
+  .ingredient-journey-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 2% auto;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .certifications-grid,
+  .ingredients-grid {
+    grid-template-columns: 1fr;
   }
 }
 
+/* Print Styles */
+@media print {
+  .header, .nav-menu, .footer, .btn, .modal {
+    display: none !important;
+  }
+
+  .home-content {
+    margin: 0;
+    padding: 1rem;
+  }
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles for keyboard navigation */
+.btn:focus,
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: 2px solid #4a7c59;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid currentColor;
+  }
+
+  .modal-content {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

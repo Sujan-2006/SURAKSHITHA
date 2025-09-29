@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Processor Dashboard - SURAKSHITHA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="brand-icon">🌿</div>
+      <h1>SURAKSHITHA</h1>
+    </div>
+    <div class="user-info">
+      <div class="language-switcher">
+        <select class="language-dropdown">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="ta">தமிழ்</option>
+          <option value="kn">ಕನ್ನಡ</option>
+        </select>
+      </div>
+      <div class="user-role">Processor Portal</div>
+      <span>Welcome, Kerala Spice Processing Co.</span>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav-menu">
+    <a href="#" class="nav-item active">🏠 Dashboard</a>
+    <a href="market-analysis.html" class="nav-item">📊 Market Analysis</a>
+    <a href="#" class="nav-item" onclick="showProcessingPanel()">⚙️ Processing</a>
+    <a href="communication-hub.html" class="nav-item">💬 Communications</a>
+    <a href="reviews-ratings.html" class="nav-item">⭐ Reviews & Ratings</a>
+    <a href="grievance-system.html" class="nav-item">🎯 Grievances</a>
+    <a href="index.html" class="nav-item">🔙 Home</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="home-content">
+    <div class="dashboard-header">
+      <h2>PROCESSOR DASHBOARD</h2>
+      <p class="subtitle">Process raw materials, maintain quality, and coordinate logistics</p>
+    </div>
+
+    <!-- Dashboard Stats -->
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <div class="stat-number">18</div>
+        <div class="stat-label">Active Processing Orders</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2,450kg</div>
+        <div class="stat-label">Monthly Processing Volume</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">₹1,85,000</div>
+        <div class="stat-label">Monthly Revenue</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">45</div>
+        <div class="stat-label">Cultivator Partners</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4.7⭐</div>
+        <div class="stat-label">Processing Quality Rating</div>
+      </div>
+    </div>
+
+    <!-- Current Processing Overview -->
+    <div class="market-analysis">
+      <h3>⚙️ Current Processing Status</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Raw Material</th>
+            <th>Processing ID</th>
+            <th>Status</th>
+            <th>Input Qty</th>
+            <th>Expected Output</th>
+            <th>Completion</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Black Pepper Berries</strong></td>
+            <td>PROC2505453</td>
+            <td><span class="price-up">✅ Processing Complete</span></td>
+            <td>550kg</td>
+            <td>500kg powder</td>
+            <td>Sep 30, 2025</td>
+            <td><button class="btn btn-primary" onclick="viewProcessingDetails('PROC2505453')">View Details</button></td>
+          </tr>
+          <tr>
+            <td><strong>Long Pepper Spikes</strong></td>
+            <td>PROC2505287</td>
+            <td><span class="price-stable">⚙️ In Processing</span></td>
+            <td>200kg</td>
+            <td>180kg powder</td>
+            <td>Oct 5, 2025</td>
+            <td><button class="btn btn-secondary" onclick="viewProcessingDetails('PROC2505287')">View Details</button></td>
+          </tr>
+          <tr>
+            <td><strong>Fresh Ginger</strong></td>
+            <td>PROC2505891</td>
+            <td><span class="price-down">🔄 Drying Stage</span></td>
+            <td>800kg</td>
+            <td>160kg dry powder</td>
+            <td>Oct 15, 2025</td>
+            <td><button class="btn btn-ingredients" onclick="viewProcessingDetails('PROC2505891')">View Details</button></td>
+          </tr>
+          <tr>
+            <td><strong>Turmeric Rhizomes</strong></td>
+            <td>PROC2505134</td>
+            <td><span class="price-up">📦 Ready for Dispatch</span></td>
+            <td>1000kg</td>
+            <td>850kg powder</td>
+            <td>Sep 25, 2025</td>
+            <td><button class="btn btn-certifications" onclick="viewProcessingDetails('PROC2505134')">View Details</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Raw Material Sourcing -->
+    <div class="market-analysis">
+      <h3>🌱 Raw Material Sourcing Status</h3>
+      <div class="price-trend">
+        <div>
+          <strong>Black Pepper Berries (Fresh Harvest)</strong>
+          <p>Received from: Ram Kumar (Certified Organic) | Quality Grade: A+ | Moisture: 12.5% | Ready for processing</p>
+        </div>
+        <div class="price-up">
+          <strong>Status: ✅ Received</strong>
+          <small>Quality verified</small>
+        </div>
+      </div>
+      <div class="price-trend">
+        <div>
+          <strong>Long Pepper Spikes</strong>
+          <p>Expected from: Karnataka Hills Collective | Quality: Premium | Delivery: Oct 3, 2025 | Pre-order confirmed</p>
+        </div>
+        <div class="price-stable">
+          <strong>Status: 🚛 In Transit</strong>
+          <small>Expected in 2 days</small>
+        </div>
+      </div>
+      <div class="price-trend">
+        <div>
+          <strong>Fresh Ginger</strong>
+          <p>Urgent requirement: 500kg | 3 suppliers available | Best quality from Maharashtra | Moisture content critical</p>
+        </div>
+        <div class="price-down">
+          <strong>Status: ⚠️ Sourcing</strong>
+          <small>Need by Oct 10</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Processing Equipment Status -->
+    <div class="communication-panel">
+      <h3>🔧 Processing Equipment & Facility Status</h3>
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <div class="stat-number">✅</div>
+          <div class="stat-label">Cleaning Unit Operational</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">✅</div>
+          <div class="stat-label">Drying Facility Active</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">⚠️</div>
+          <div class="stat-label">Grinding Mill Maintenance</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">✅</div>
+          <div class="stat-label">Quality Testing Lab Ready</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">✅</div>
+          <div class="stat-label">Packaging Unit Available</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">✅</div>
+          <div class="stat-label">Storage Facility Optimal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Communications -->
+    <div class="communication-panel">
+      <h3>💬 Recent Communications</h3>
+      <div class="chat-messages">
+        <div class="message">
+          <div class="message-header">
+            Ayurveda Naturals Pvt Ltd (Manufacturer)
+            <span class="message-time">1 hour ago</span>
+          </div>
+          <p>Black pepper processing looks excellent! Quality report shows 98.2% purity. Please proceed with packaging and dispatch. Payment authorization sent.</p>
+        </div>
+        <div class="message sent">
+          <div class="message-header">
+            You
+            <span class="message-time">30 minutes ago</span>
+          </div>
+          <p>Thank you! Packaging completed for 500kg black pepper powder. All blockchain records updated. Dispatch scheduled for tomorrow 10 AM. Tracking ID: BP-TRACK-2025-001</p>
+        </div>
+        <div class="message">
+          <div class="message-header">
+            Ram Kumar (Cultivator)
+            <span class="message-time">3 hours ago</span>
+          </div>
+          <p>Quality inspection of black pepper went well. Happy with your processing standards. Looking forward to long-term partnership for upcoming turmeric harvest (500kg expected).</p>
+        </div>
+        <div class="message sent">
+          <div class="message-header">
+            You
+            <span class="message-time">2 hours ago</span>
+          </div>
+          <p>Excellent news! We'd be delighted to process your turmeric harvest. Please share expected harvest dates and quality specifications. We offer competitive processing rates for bulk quantities.</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <div style="display: flex; gap: 1rem;">
+          <input type="text" class="form-input" placeholder="Type your message..." style="flex: 1;">
+          <button class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="btn btn-primary" onclick="showProcessingPanel()">⚙️ Processing Management</button>
+      <button class="btn btn-secondary" onclick="showQualityLab()">🔬 Quality Laboratory</button>
+      <button class="btn btn-ingredients" onclick="showLogistics()">🚛 Logistics & Dispatch</button>
+      <button class="btn btn-certifications" onclick="showEquipmentStatus()">🔧 Equipment Status</button>
+    </div>
+  </main>
+
+  <!-- Processing Management Modal -->
+  <div id="processingModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⚙️ Processing Management</h3>
+        <span class="close" onclick="closeProcessingModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Raw Material:</label>
+          <select class="form-select" id="materialSelect">
+            <option>Black Pepper Berries</option>
+            <option>Long Pepper Spikes</option>
+            <option>Fresh Ginger</option>
+            <option>Turmeric Rhizomes</option>
+            <option>Add New Material</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Processing ID:</label>
+          <input type="text" class="form-input" placeholder="Auto-generated" readonly>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Input Quantity (kg):</label>
+          <input type="number" class="form-input" placeholder="e.g., 500">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Processing Type:</label>
+          <select class="form-select">
+            <option>Cleaning + Drying + Grinding</option>
+            <option>Cleaning + Grinding</option>
+            <option>Drying Only</option>
+            <option>Grinding Only</option>
+            <option>Custom Processing</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Quality Parameters:</label>
+          <textarea class="form-textarea" placeholder="Moisture content, purity requirements, particle size, etc."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Special Instructions:</label>
+          <textarea class="form-textarea" placeholder="Temperature control, processing speed, packaging requirements, etc."></textarea>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary">🚀 Start Processing</button>
+          <button class="btn btn-secondary">💾 Save Parameters</button>
+          <button class="btn btn-ingredients">📋 Generate Quote</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 SURAKSHITHA | Empowering Processors through Technology</p>
+  </footer>
+
+  <script>
+    function showProcessingPanel() {
+      document.getElementById('processingModal').style.display = 'block';
+    }
+
+    function closeProcessingModal() {
+      document.getElementById('processingModal').style.display = 'none';
+    }
+
+    function viewProcessingDetails(procId) {
+      alert(`Viewing detailed information for processing order ${procId}. This would show complete processing history, quality parameters, and blockchain tracking.`);
+    }
+
+    function showQualityLab() {
+      alert('Quality laboratory would show testing schedules, pending tests, certificates, and compliance reports.');
+    }
+
+    function showLogistics() {
+      alert('Logistics panel would show dispatch schedules, tracking information, delivery confirmations, and transportation management.');
+    }
+
+    function showEquipmentStatus() {
+      alert('Equipment status would show maintenance schedules, operational status, efficiency metrics, and service requirements.');
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const processingModal = document.getElementById('processingModal');
+      if (event.target == processingModal) {
+        processingModal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

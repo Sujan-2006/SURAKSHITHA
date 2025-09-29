@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manufacturer Dashboard - SURAKSHITHA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="brand-icon">🌿</div>
+      <h1>SURAKSHITHA</h1>
+    </div>
+    <div class="user-info">
+      <div class="language-switcher">
+        <select class="language-dropdown">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="ta">தமிழ்</option>
+          <option value="kn">ಕನ್ನಡ</option>
+        </select>
+      </div>
+      <div class="user-role">Manufacturer Portal</div>
+      <span>Welcome, Ayurveda Naturals Pvt Ltd</span>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav-menu">
+    <a href="#" class="nav-item active">🏠 Dashboard</a>
+    <a href="market-analysis.html" class="nav-item">📊 Market Analysis</a>
+    <a href="#" class="nav-item" onclick="showProductionPanel()">🏭 Production</a>
+    <a href="communication-hub.html" class="nav-item">💬 Communications</a>
+    <a href="reviews-ratings.html" class="nav-item">⭐ Reviews & Ratings</a>
+    <a href="grievance-system.html" class="nav-item">🎯 Grievances</a>
+    <a href="index.html" class="nav-item">🔙 Home</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="home-content">
+    <div class="dashboard-header">
+      <h2>MANUFACTURER DASHBOARD</h2>
+      <p class="subtitle">Manage production, source ingredients, and maintain quality standards</p>
+    </div>
+
+    <!-- Dashboard Stats -->
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <div class="stat-number">24</div>
+        <div class="stat-label">Active Products</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Production Batches</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">₹2,45,000</div>
+        <div class="stat-label">Monthly Revenue</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">156</div>
+        <div class="stat-label">Supplier Network</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4.9⭐</div>
+        <div class="stat-label">Quality Rating</div>
+      </div>
+    </div>
+
+    <!-- Current Production Overview -->
+    <div class="market-analysis">
+      <h3>🏭 Current Production Status</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Batch ID</th>
+            <th>Status</th>
+            <th>Quantity</th>
+            <th>Completion Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Trikatu Churna</strong></td>
+            <td>TRIK2505453</td>
+            <td><span class="price-up">✅ Ready for Packaging</span></td>
+            <td>500kg</td>
+            <td>Oct 2, 2025</td>
+            <td><button class="btn btn-primary" onclick="viewBatchDetails('TRIK2505453')">View Details</button></td>
+          </tr>
+          <tr>
+            <td><strong>Ashwagandha Powder</strong></td>
+            <td>ASHW2505287</td>
+            <td><span class="price-stable">⚙️ In Production</span></td>
+            <td>300kg</td>
+            <td>Oct 8, 2025</td>
+            <td><button class="btn btn-secondary" onclick="viewBatchDetails('ASHW2505287')">View Details</button></td>
+          </tr>
+          <tr>
+            <td><strong>Triphala Powder</strong></td>
+            <td>TRIP2505891</td>
+            <td><span class="price-down">🔄 Quality Testing</span></td>
+            <td>750kg</td>
+            <td>Oct 12, 2025</td>
+            <td><button class="btn btn-ingredients" onclick="viewBatchDetails('TRIP2505891')">View Details</button></td>
+          </tr>
+          <tr>
+            <td><strong>Brahmi Extract</strong></td>
+            <td>BRAH2505134</td>
+            <td><span class="price-up">📦 Packed & Ready</span></td>
+            <td>200kg</td>
+            <td>Sep 28, 2025</td>
+            <td><button class="btn btn-certifications" onclick="viewBatchDetails('BRAH2505134')">View Details</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Ingredient Sourcing -->
+    <div class="market-analysis">
+      <h3>🌱 Ingredient Sourcing & Supplier Management</h3>
+      <div class="price-trend">
+        <div>
+          <strong>Black Pepper</strong>
+          <p>Required: 50kg for next batch | Available from Ram Kumar (Kerala) - ₹850/kg | Quality: A+ | Delivery: 3 days</p>
+        </div>
+        <div style="text-align: right;">
+          <button class="btn btn-primary" onclick="contactSupplier('ramkumar')">Contact Supplier</button>
+        </div>
+      </div>
+      <div class="price-trend">
+        <div>
+          <strong>Long Pepper</strong>
+          <p>Required: 30kg for upcoming production | 3 suppliers available | Best offer: ₹1,180/kg</p>
+        </div>
+        <div style="text-align: right;">
+          <button class="btn btn-secondary" onclick="viewSuppliers('longpepper')">View All Suppliers</button>
+        </div>
+      </div>
+      <div class="price-trend">
+        <div>
+          <strong>Dry Ginger</strong>
+          <p>Stock Alert: Only 15kg remaining | 5 suppliers nearby | Avg. price: ₹47/kg | Organic certified available</p>
+        </div>
+        <div style="text-align: right;">
+          <button class="btn btn-danger" onclick="urgentOrder('ginger')">🚨 Urgent Order</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quality Control & Certifications -->
+    <div class="communication-panel">
+      <h3>🏆 Quality Control & Certifications</h3>
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <div class="stat-number">✅</div>
+          <div class="stat-label">ISO 9001:2015 Current</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">✅</div>
+          <div class="stat-label">AYUSH License Valid</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">⚠️</div>
+          <div class="stat-label">GMP Renewal Due</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">✅</div>
+          <div class="stat-label">Organic Certified</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Communications -->
+    <div class="communication-panel">
+      <h3>💬 Recent Communications</h3>
+      <div class="chat-messages">
+        <div class="message">
+          <div class="message-header">
+            Quality Control Lab
+            <span class="message-time">30 minutes ago</span>
+          </div>
+          <p>Batch TRIK2505453 has passed all quality tests. Heavy metals: Clear | Microbial: Within limits | Active compounds: 98.2% purity. Ready for final packaging.</p>
+        </div>
+        <div class="message">
+          <div class="message-header">
+            Kerala Spice Processing Co. (Processor)
+            <span class="message-time">2 hours ago</span>
+          </div>
+          <p>Black pepper processing completed. 500kg of premium grade powder ready for collection. All documentation and blockchain records updated.</p>
+        </div>
+        <div class="message sent">
+          <div class="message-header">
+            You
+            <span class="message-time">1 hour ago</span>
+          </div>
+          <p>Excellent! Please arrange pickup tomorrow morning. Payment will be processed within 24 hours of quality verification.</p>
+        </div>
+        <div class="message">
+          <div class="message-header">
+            Ram Kumar (Cultivator)
+            <span class="message-time">4 hours ago</span>
+          </div>
+          <p>New harvest of long pepper is ready - 45kg of premium quality. Would you be interested? Organic certified and ready for immediate delivery.</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <div style="display: flex; gap: 1rem;">
+          <input type="text" class="form-input" placeholder="Type your message..." style="flex: 1;">
+          <button class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="btn btn-primary" onclick="showProductionPanel()">🏭 Production Management</button>
+      <button class="btn btn-secondary" onclick="showSupplierNetwork()">🌐 Supplier Network</button>
+      <button class="btn btn-ingredients" onclick="showQualityControl()">🔬 Quality Control</button>
+      <button class="btn btn-certifications" onclick="showInventory()">📦 Inventory Management</button>
+    </div>
+  </main>
+
+  <!-- Production Management Modal -->
+  <div id="productionModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🏭 Production Management</h3>
+        <span class="close" onclick="closeProductionModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Product:</label>
+          <select class="form-select" id="productSelect">
+            <option>Trikatu Churna</option>
+            <option>Ashwagandha Powder</option>
+            <option>Triphala Powder</option>
+            <option>Brahmi Extract</option>
+            <option>Create New Product</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Batch ID:</label>
+          <input type="text" class="form-input" placeholder="Auto-generated" readonly>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Production Quantity (kg):</label>
+          <input type="number" class="form-input" placeholder="e.g., 500">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Expected Completion Date:</label>
+          <input type="date" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ingredients Required:</label>
+          <textarea class="form-textarea" placeholder="List all ingredients with quantities..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Production Notes:</label>
+          <textarea class="form-textarea" placeholder="Special instructions, quality parameters, etc."></textarea>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary">🚀 Start Production</button>
+          <button class="btn btn-secondary">💾 Save as Draft</button>
+          <button class="btn btn-ingredients">🧮 Calculate Cost</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 SURAKSHITHA | Empowering Manufacturers through Technology</p>
+  </footer>
+
+  <script>
+    function showProductionPanel() {
+      document.getElementById('productionModal').style.display = 'block';
+    }
+
+    function closeProductionModal() {
+      document.getElementById('productionModal').style.display = 'none';
+    }
+
+    function viewBatchDetails(batchId) {
+      alert(`Viewing detailed information for batch ${batchId}. This would show complete production history, ingredients, quality reports, and blockchain tracking.`);
+    }
+
+    function contactSupplier(supplierId) {
+      alert(`Opening communication with supplier ${supplierId}. This would start a direct chat or show contact details.`);
+    }
+
+    function viewSuppliers(ingredient) {
+      alert(`Showing all available suppliers for ${ingredient} with pricing, quality ratings, and delivery options.`);
+    }
+
+    function urgentOrder(ingredient) {
+      alert(`Creating urgent purchase order for ${ingredient}. This would prioritize the order and notify best suppliers.`);
+    }
+
+    function showSupplierNetwork() {
+      alert('Supplier network would show all registered cultivators and processors with ratings, product availability, and communication tools.');
+    }
+
+    function showQualityControl() {
+      alert('Quality control panel would show pending tests, lab reports, certification status, and compliance tracking.');
+    }
+
+    function showInventory() {
+      alert('Inventory management would show current stock levels, expiry dates, storage conditions, and reorder points.');
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const productionModal = document.getElementById('productionModal');
+      if (event.target == productionModal) {
+        productionModal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cultivator Dashboard - SURAKSHITHA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="brand-icon">🌿</div>
+      <h1>SURAKSHITHA</h1>
+    </div>
+    <div class="user-info">
+      <div class="language-switcher">
+        <select class="language-dropdown">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+          <option value="ta">தமிழ்</option>
+          <option value="kn">ಕನ್ನಡ</option>
+        </select>
+      </div>
+      <div class="user-role">Cultivator Portal</div>
+      <span>Welcome, Ram Kumar</span>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav-menu">
+    <a href="#" class="nav-item active">🏠 Dashboard</a>
+    <a href="#analytics" class="nav-item" onclick="scrollToSection('analytics')">📊 Analytics</a>
+    <a href="#" class="nav-item" onclick="showCropManagement()">🌱 Crop Management</a>
+    <a href="communication-hub.html" class="nav-item">💬 Communications</a>
+    <a href="reviews-ratings.html" class="nav-item">⭐ Reviews & Ratings</a>
+    <a href="grievance-system.html" class="nav-item">🎯 Grievances</a>
+    <a href="index.html" class="nav-item">🔙 Home</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="home-content">
+    <div class="dashboard-header">
+      <h2>CULTIVATOR DASHBOARD</h2>
+      <p class="subtitle">Manage your crops, track market trends, and connect with the supply chain</p>
+    </div>
+
+    <!-- Live Market Ticker -->
+    <div class="market-analysis" style="background: linear-gradient(135deg, #e8f5e8, #f0f9f0); border: 2px solid #4a7c59; margin-bottom: 2rem;">
+      <h3 style="color: #2d5016; margin-bottom: 1rem;">🔴 LIVE MARKET PRICES</h3>
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div class="price-trend" style="flex: 1; min-width: 200px; margin: 0;">
+          <div>
+            <strong style="color: #2d5016;">Black Pepper</strong>
+            <div class="price-up" style="font-size: 1.2rem; font-weight: bold;">₹850/kg ↗️ +2.1%</div>
+          </div>
+        </div>
+        <div class="price-trend" style="flex: 1; min-width: 200px; margin: 0;">
+          <div>
+            <strong style="color: #2d5016;">Long Pepper</strong>
+            <div class="price-stable" style="font-size: 1.2rem; font-weight: bold;">₹1,200/kg ➡️ 0.0%</div>
+          </div>
+        </div>
+        <div class="price-trend" style="flex: 1; min-width: 200px; margin: 0;">
+          <div>
+            <strong style="color: #2d5016;">Ginger</strong>
+            <div class="price-up" style="font-size: 1.2rem; font-weight: bold;">₹45/kg ↗️ +4.7%</div>
+          </div>
+        </div>
+        <div class="price-trend" style="flex: 1; min-width: 200px; margin: 0;">
+          <div>
+            <strong style="color: #2d5016;">Turmeric</strong>
+            <div class="price-stable" style="font-size: 1.2rem; font-weight: bold;">₹85/kg ➡️ +0.2%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Stats -->
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <div class="stat-number">15</div>
+        <div class="stat-label">Active Crops</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2.5</div>
+        <div class="stat-label">Hectares Cultivated</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">₹45,670</div>
+        <div class="stat-label">This Month Revenue</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">12</div>
+        <div class="stat-label">Active Orders</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4.8⭐</div>
+        <div class="stat-label">Cultivator Rating</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">30.5%</div>
+        <div class="stat-label">Profit Margin</div>
+      </div>
+    </div>
+
+    <!-- Analytics Section -->
+    <div id="analytics" class="market-analysis">
+      <h3>📊 Live Analytics & Performance Dashboard</h3>
+
+      <!-- Yield Analytics -->
+      <div style="margin: 2rem 0;">
+        <h4 style="color: #2d5016; margin-bottom: 1rem;">🌱 Crop Yield Performance (Last 12 Months)</h4>
+        <p style="color: #666; margin-bottom: 1rem;">Track your monthly harvest quantities across different crops to identify seasonal patterns and optimize planting schedules.</p>
+        [chart:27]
+        <div class="dashboard-stats" style="margin-top: 1rem;">
+          <div class="stat-card">
+            <div class="stat-number">72kg</div>
+            <div class="stat-label">Black Pepper (Sep 2025)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">55kg</div>
+            <div class="stat-label">Long Pepper (Sep 2025)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">210kg</div>
+            <div class="stat-label">Ginger (Sep 2025)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">300kg</div>
+            <div class="stat-label">Turmeric (Sep 2025)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price Analytics -->
+      <div style="margin: 2rem 0;">
+        <h4 style="color: #2d5016; margin-bottom: 1rem;">💰 Market Price Trends Analysis</h4>
+        <p style="color: #666; margin-bottom: 1rem;">Monitor market price fluctuations to make informed decisions about when to sell your harvest for maximum profitability.</p>
+        [chart:28]
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+          <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px; border-left: 4px solid #28a745;">
+            <strong style="color: #2d5016;">Best Selling Opportunity</strong>
+            <p>Black Pepper prices have increased by 18% over the past 6 months. Current price of ₹850/kg is near yearly high.</p>
+          </div>
+          <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; border-left: 4px solid #ffc107;">
+            <strong style="color: #856404;">Market Insight</strong>
+            <p>Long Pepper prices stable at ₹1,200/kg. Consistent demand from pharmaceutical companies provides steady income.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue Analytics -->
+      <div style="margin: 2rem 0;">
+        <h4 style="color: #2d5016; margin-bottom: 1rem;">📈 Revenue & Profitability Analysis</h4>
+        <p style="color: #666; margin-bottom: 1rem;">Comprehensive view of your monthly revenue and profit margins to track business performance and identify growth opportunities.</p>
+        [chart:29]
+        <div class="dashboard-stats" style="margin-top: 1rem;">
+          <div class="stat-card">
+            <div class="stat-number">₹58,900</div>
+            <div class="stat-label">Highest Monthly Revenue (Jun 2025)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">35.6%</div>
+            <div class="stat-label">Peak Profit Margin (Jun 2025)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">₹47,200</div>
+            <div class="stat-label">Average Monthly Revenue</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">31.2%</div>
+            <div class="stat-label">Average Profit Margin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Current Crops Overview -->
+    <div class="market-analysis">
+      <h3>🌱 Current Crop Status</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Crop Name</th>
+            <th>Stage</th>
+            <th>Area (Acres)</th>
+            <th>Expected Harvest</th>
+            <th>Current Market Price</th>
+            <th>Projected Revenue</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Black Pepper</strong></td>
+            <td><span class="price-up">✅ Ready to Harvest</span></td>
+            <td>0.5 acres</td>
+            <td>Oct 15, 2025</td>
+            <td class="price-up">₹850/kg ↗️</td>
+            <td class="price-up"><strong>₹61,200</strong></td>
+            <td><button class="btn btn-primary" onclick="viewCropDetails('pepper')">View Details</button></td>
+          </tr>
+          <tr>
+            <td><strong>Long Pepper</strong></td>
+            <td><span class="price-stable">🌿 Growing</span></td>
+            <td>0.3 acres</td>
+            <td>Nov 20, 2025</td>
+            <td class="price-stable">₹1,200/kg ➡️</td>
+            <td class="price-stable"><strong>₹66,000</strong></td>
+            <td><button class="btn btn-secondary" onclick="viewCropDetails('longpepper')">View Details</button></td>
+          </tr>
+          <tr>
+            <td><strong>Ginger</strong></td>
+            <td><span class="price-down">🌱 Seedling</span></td>
+            <td>0.7 acres</td>
+            <td>Dec 30, 2025</td>
+            <td class="price-up">₹45/kg ↗️</td>
+            <td class="price-up"><strong>₹9,450</strong></td>
+            <td><button class="btn btn-ingredients" onclick="viewCropDetails('ginger')">View Details</button></td>
+          </tr>
+          <tr>
+            <td><strong>Turmeric</strong></td>
+            <td><span class="price-up">🌾 Mature</span></td>
+            <td>1.0 acres</td>
+            <td>Oct 25, 2025</td>
+            <td class="price-stable">₹85/kg ➡️</td>
+            <td class="price-stable"><strong>₹25,500</strong></td>
+            <td><button class="btn btn-certifications" onclick="viewCropDetails('turmeric')">View Details</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Market Insights with AI Recommendations -->
+    <div class="market-analysis">
+      <h3>🤖 AI-Powered Market Insights & Recommendations</h3>
+      <div class="price-trend">
+        <div>
+          <strong>🎯 Immediate Action Required</strong>
+          <p>Black Pepper prices are at yearly high (₹850/kg). Harvest and sell within next 7 days for maximum profit. 3 buyers have expressed interest at current rates.</p>
+        </div>
+        <div class="price-up">
+          <button class="btn btn-primary">Contact Buyers</button>
+        </div>
+      </div>
+      <div class="price-trend">
+        <div>
+          <strong>📅 Planting Recommendation</strong>
+          <p>Based on seasonal patterns, plant Long Pepper in next 2 weeks for optimal harvest timing. Expected market price: ₹1,350/kg by harvest time.</p>
+        </div>
+        <div class="price-stable">
+          <button class="btn btn-secondary">View Planting Guide</button>
+        </div>
+      </div>
+      <div class="price-trend">
+        <div>
+          <strong>💡 Diversification Opportunity</strong>
+          <p>Ashwagandha demand increasing by 25% annually. Consider allocating 0.2 acres for trial cultivation. Projected ROI: 45%</p>
+        </div>
+        <div class="price-up">
+          <button class="btn btn-ingredients">Explore Opportunity</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Communications -->
+    <div class="communication-panel">
+      <h3>💬 Recent Communications</h3>
+      <div class="chat-messages">
+        <div class="message">
+          <div class="message-header">
+            Kerala Spice Processing Co.
+            <span class="message-time">2 hours ago</span>
+          </div>
+          <p>We're interested in purchasing your Black Pepper harvest. Can we discuss quantity and pricing? Our offer is ₹870/kg for premium quality - that's ₹20 above current market rate!</p>
+        </div>
+        <div class="message sent">
+          <div class="message-header">
+            You
+            <span class="message-time">1 hour ago</span>
+          </div>
+          <p>Thank you for your interest. I have approximately 72kg of premium black pepper ready for harvest next week. Quality certificates available. When would you like to inspect?</p>
+        </div>
+        <div class="message">
+          <div class="message-header">
+            Traditional Ayurveda Manufacturers
+            <span class="message-time">45 minutes ago</span>
+          </div>
+          <p>Your turmeric quality last season was excellent! We need 300kg for our upcoming festival batch. Are your crops certified organic? Premium rates guaranteed.</p>
+        </div>
+        <div class="message">
+          <div class="message-header">
+            Market Alert System
+            <span class="message-time">15 minutes ago</span>
+          </div>
+          <p>🚨 PRICE ALERT: Black Pepper prices jumped 2.1% to ₹850/kg in the last 4 hours. Consider selling soon as technical indicators suggest possible correction.</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <div style="display: flex; gap: 1rem;">
+          <input type="text" class="form-input" placeholder="Type your message..." style="flex: 1;">
+          <button class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="btn btn-primary" onclick="showCropManagement()">🌱 Manage Crops</button>
+      <button class="btn btn-secondary" onclick="showMarketAlerts()">🔔 Set Price Alerts</button>
+      <button class="btn btn-ingredients" onclick="showOrderHistory()">📦 Order History</button>
+      <button class="btn btn-certifications" onclick="showCertifications()">📜 My Certifications</button>
+      <button class="btn btn-primary" onclick="exportAnalytics()">📊 Export Analytics</button>
+    </div>
+  </main>
+
+  <!-- Crop Management Modal -->
+  <div id="cropModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🌱 Crop Management</h3>
+        <span class="close" onclick="closeCropModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Select Crop:</label>
+          <select class="form-select" id="cropSelect">
+            <option>Black Pepper</option>
+            <option>Long Pepper</option>
+            <option>Ginger</option>
+            <option>Turmeric</option>
+            <option>Add New Crop</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Current Stage:</label>
+          <select class="form-select">
+            <option>Seedling</option>
+            <option>Growing</option>
+            <option>Mature</option>
+            <option>Ready to Harvest</option>
+            <option>Harvested</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Area Cultivated (Acres):</label>
+          <input type="number" class="form-input" placeholder="e.g., 0.5" step="0.1">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Expected Harvest Date:</label>
+          <input type="date" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Estimated Quantity (kg):</label>
+          <input type="number" class="form-input" placeholder="e.g., 72">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Expected Revenue (₹):</label>
+          <input type="number" class="form-input" placeholder="Auto-calculated based on current market price" readonly>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Notes/Updates:</label>
+          <textarea class="form-textarea" placeholder="Add any updates about crop condition, weather impact, pest issues, etc."></textarea>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary">💾 Save Updates</button>
+          <button class="btn btn-secondary">📷 Add Photos</button>
+          <button class="btn btn-ingredients">📊 View Detailed Analytics</button>
+          <button class="btn btn-certifications">🏆 Request Quality Certification</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 SURAKSHITHA | Empowering Cultivators through Technology & Data Analytics</p>
+  </footer>
+
+  <script>
+    // Smooth scroll to analytics section
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showCropManagement() {
+      document.getElementById('cropModal').style.display = 'block';
+    }
+
+    function closeCropModal() {
+      document.getElementById('cropModal').style.display = 'none';
+    }
+
+    function viewCropDetails(crop) {
+      alert(`Viewing detailed analytics for ${crop}. This would show:\n\n• Complete cultivation history\n• Yield trends and comparisons\n• Revenue projections\n• Market timing recommendations\n• Quality metrics\n• Weather impact analysis`);
+    }
+
+    function showMarketAlerts() {
+      alert('Price Alert System would allow you to set custom price thresholds for each crop. Get notifications via SMS/Email when target prices are reached.');
+    }
+
+    function showMarketAnalysis() {
+      scrollToSection('analytics');
+    }
+
+    function showOrderHistory() {
+      alert('Order history would show:\n\n• Past sales with buyer details\n• Payment history and status\n• Quality ratings received\n• Seasonal performance trends\n• Repeat customer analysis');
+    }
+
+    function showCertifications() {
+      alert('Certification management would show:\n\n• Organic certificates status\n• Quality standards compliance\n• Renewal dates and requirements\n• New certification opportunities\n• Premium pricing eligibility');
+    }
+
+    function exportAnalytics() {
+      alert('Analytics export would generate:\n\n• PDF reports with all charts\n• Excel spreadsheets with raw data\n• Performance summaries\n• Trend analysis\n• Profitability reports\n• Tax documentation support');
+    }
+
+    // Simulate live price updates
+    function updateLivePrices() {
+      const priceElements = document.querySelectorAll('.price-trend');
+      // In a real application, this would fetch live data from an API
+      console.log('Updating live market prices...');
+    }
+
+    // Update prices every 30 seconds (simulated)
+    setInterval(updateLivePrices, 30000);
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const cropModal = document.getElementById('cropModal');
+      if (event.target == cropModal) {
+        cropModal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
